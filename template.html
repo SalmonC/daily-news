@@ -1,8 +1,28 @@
-<div class="hero-date">
-    <h2>📰 每日早报 {{date}} <span class="weekday">{{weekday}}</span></h2>
-    <p style="color:var(--text-secondary);font-size:0.9rem">今日精选 6 个可靠来源，为你摘选热点、GitHub 热榜、游戏动态与数码资讯。</p>
-</div>
-{{sections}}
-<footer style="text-align:center;margin-top:30px;color:var(--text-secondary);font-size:0.85rem">
-    ✅ 早报由 Hermes 自动生成 | <a href="https://github.com/salmonc/daily-news" target="_blank" style="color:var(--accent)">查看源码</a>
-</footer>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三文鱼早报 | {{date}}</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>🐟 三文鱼早报</h1>
+            <p class="tagline">每日精选 · 热点 · GitHub · 游戏 · 数码</p>
+        </div>
+    </header>
+
+    <main class="container post-body">
+        <div class="hero-date">
+            <h2>📰 每日早报 {{date}} <span class="weekday">{{weekday}}</span></h2>
+            <p class="sub">今日精选 6 个可靠来源，为你摘选热点、GitHub 热榜、游戏动态与数码资讯。</p>
+        </div>
+        {{sections}}
+        <footer class="site-footer" style="border-top:none;padding-top:10px;">
+            <p>✅ 早报由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a> · <a href="../index.html">返回首页</a></p>
+        </footer>
+    </main>
+</body>
+</html>
