@@ -85,16 +85,74 @@ a {
     letter-spacing: 1px;
 }
 
+/* Layout with TOC sidebar */
+.post-layout {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 28px 22px 60px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* TOC Sidebar */
+.toc-sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    display: block;
+}
+
+.toc-sticky {
+    position: sticky;
+    top: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 16px;
+}
+
+.toc-title {
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--text);
+    letter-spacing: 1px;
+}
+
+.toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.toc-item a {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+    border-left: 2px solid transparent;
+}
+
+.toc-item a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-left-color: var(--accent);
+}
+
 /* Container */
 .container {
     max-width: 780px;
     margin: 0 auto;
-    padding: 0 22px;
+    padding: 0;
 }
 
 main.container {
-    padding-top: 28px;
-    padding-bottom: 60px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* Hero date */
@@ -131,6 +189,7 @@ main.container {
     padding: 26px 28px;
     margin-bottom: 22px;
     transition: transform 0.18s ease, border-color 0.18s ease;
+    scroll-margin-top: 24px;
 }
 
 .section-card:hover {
@@ -322,3 +381,17 @@ main.container {
 .section-card:nth-child(5) { animation-delay: 0.25s; }
 .section-card:nth-child(6) { animation-delay: 0.3s; }
 .section-card:nth-child(7) { animation-delay: 0.35s; }
+
+/* Mobile: hide sidebar */
+@media (max-width: 960px) {
+    .post-layout {
+        display: block;
+        padding: 0 18px 60px;
+    }
+    .toc-sidebar {
+        display: none;
+    }
+    .container {
+        padding: 0;
+    }
+}
