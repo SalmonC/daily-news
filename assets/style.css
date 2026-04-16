@@ -2,18 +2,33 @@
 @import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css');
 
 :root {
-    --bg: #0c0c0c;
-    --surface: #141414;
-    --surface-hover: #1a1a1a;
-    --text: #f0ece4;
-    --muted: #9a958e;
-    --accent: #ff5f57;
-    --accent-soft: rgba(255, 95, 87, 0.12);
-    --gold: #c9a227;
-    --gold-soft: rgba(201, 162, 39, 0.12);
-    --border: #262626;
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --surface-hover: #f5f4f2;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #d94f48;
+    --accent-soft: rgba(217, 79, 72, 0.10);
+    --gold: #b8860b;
+    --gold-soft: rgba(184, 134, 11, 0.10);
+    --border: #e5e4e2;
     --radius: 16px;
     --radius-sm: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0c0c0c;
+        --surface: #141414;
+        --surface-hover: #1a1a1a;
+        --text: #f0ece4;
+        --muted: #9a958e;
+        --accent: #ff5f57;
+        --accent-soft: rgba(255, 95, 87, 0.12);
+        --gold: #c9a227;
+        --gold-soft: rgba(201, 162, 39, 0.12);
+        --border: #262626;
+    }
 }
 
 * {
@@ -43,10 +58,16 @@ a {
 
 /* Site header */
 .site-header {
-    background: linear-gradient(180deg, rgba(255,95,87,0.08) 0%, rgba(12,12,12,0) 100%);
+    background: linear-gradient(180deg, rgba(217,79,72,0.08) 0%, rgba(250,249,247,0) 100%);
     padding: 56px 0 40px;
     text-align: center;
     border-bottom: 1px solid var(--border);
+}
+
+@media (prefers-color-scheme: dark) {
+    .site-header {
+        background: linear-gradient(180deg, rgba(255,95,87,0.08) 0%, rgba(12,12,12,0) 100%);
+    }
 }
 
 .site-header h1 {
@@ -113,8 +134,14 @@ main.container {
 }
 
 .section-card:hover {
-    border-color: #333;
+    border-color: #d0d0d0;
     transform: translateY(-2px);
+}
+
+@media (prefers-color-scheme: dark) {
+    .section-card:hover {
+        border-color: #333;
+    }
 }
 
 .section-title {
