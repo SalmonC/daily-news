@@ -5,17 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>🔥 GitHub 本周热门精读 | 06.29-07.03</title>
 <style>
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 24px 16px; line-height: 1.7; color: #24292f; background: #fff; }
-h1 { font-size: 24px; border-bottom: 2px solid #0969da; padding-bottom: 12px; margin-bottom: 8px; }
-.sub { color: #57606a; font-size: 14px; margin-bottom: 24px; }
-.repo { background: #f6f8fa; border-radius: 12px; padding: 20px; margin: 20px 0; border: 1px solid #d0d7de; }
-.repo h3 { margin: 0 0 8px 0; font-size: 18px; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 24px 16px; line-height: 1.8; color: #24292f; background: #fff; }
+h1 { font-size: 26px; border-bottom: 3px solid #0969da; padding-bottom: 12px; margin-bottom: 6px; }
+.sub { color: #57606a; font-size: 14px; margin-bottom: 28px; }
+.star-of-week { background: linear-gradient(135deg, #ffedd5 0%, #fef3c7 100%); border: 2px solid #f59e0b; border-radius: 14px; padding: 24px; margin: 24px 0; }
+.star-of-week h2 { margin: 0 0 8px 0; font-size: 22px; color: #92400e; }
+.star-of-week .star-desc { font-size: 15px; color: #78350f; line-height: 1.8; }
+.star-of-week .star-meta { font-size: 13px; color: #a16207; margin-top: 10px; }
+.section-title { font-size: 20px; border-left: 4px solid #0969da; padding-left: 12px; margin: 32px 0 16px 0; color: #1f2937; }
+.repo { background: #f6f8fa; border-radius: 12px; padding: 20px; margin: 16px 0; border: 1px solid #d0d7de; transition: box-shadow 0.2s; }
+.repo:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.repo h3 { margin: 0 0 6px 0; font-size: 17px; }
 .repo h3 a { color: #0969da; text-decoration: none; }
+.repo h3 a:hover { text-decoration: underline; }
 .meta { font-size: 13px; color: #57606a; margin-bottom: 10px; }
-.desc { margin: 0; color: #24292f; }
-.topics { font-size: 13px; color: #57606a; margin-top: 8px; }
-.hn { font-size: 13px; margin-top: 8px; }
-.hn a { color: #ff6600; }
+.desc { margin: 0 0 10px 0; color: #24292f; font-size: 15px; }
+.topics { font-size: 12px; color: #57606a; margin-top: 6px; }
+.topics span { display: inline-block; background: #ddf4ff; color: #0969da; border-radius: 8px; padding: 2px 8px; margin: 2px 4px 2px 0; }
+.hn { font-size: 13px; margin-top: 8px; color: #57606a; }
+.hn a { color: #ff6600; text-decoration: none; }
+.hn a:hover { text-decoration: underline; }
+.insight { background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+.insight p { margin: 8px 0; font-size: 15px; color: #166534; }
+.insight .num { display: inline-block; background: #22c55e; color: #fff; border-radius: 50%; width: 24px; height: 24px; line-height: 24px; text-align: center; font-size: 13px; font-weight: bold; margin-right: 8px; }
+.recap { background: #eff6ff; border: 1px solid #93c5fd; border-radius: 12px; padding: 16px 20px; margin: 20px 0; font-size: 14px; color: #1e40af; }
 .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #d0d7de; font-size: 12px; color: #57606a; text-align: center; }
 </style>
 </head>
@@ -23,95 +36,117 @@ h1 { font-size: 24px; border-bottom: 2px solid #0969da; padding-bottom: 12px; ma
 <h1>🔥 GitHub 本周热门精读</h1>
 <div class="sub">周期：06.29-07.03 · 生成于 2026-07-03 09:00 · 数据源：GitHub Trending + API + HN</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/xbtlin/ai-berkshire" target="_blank">1. xbtlin / ai-berkshire</a></h3>
-            <div class="meta">⭐ 8.7k · 🔥 +本周7k · 📀 Python · 📁 AI / 机器学习</div>
-            <p class="desc">AI 时代的伯克希尔：基于 Claude Code / Codex 的价值投资研究框架。巴菲特·芒格·段永平·李录四大师方法论 + 多Agent并行研究。| AI-era Berkshire: a value investing research framework built for Claude Code / Codex. 4 masters' methodologies + multi-agent adversarial analysis.</p>
-            <div class="topics">🏷️ ai, ai-agent, anthropic, berkshire-hathaway, charlie-munger</div>
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=48704305" target="_blank">💬 HN: AI Berkshire (2 pts, 0 cmt)</a></div>
-        </div>
-        
+<div class="recap">
+📊 本周 Top 10 中 <strong>7 个是 AI/ML 项目</strong>，AI Agent 生态持续主导开源热榜。视频制作、代码智能、投资研究、安全渗透——Agent 正在蚕食每一个垂直领域。
+</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/simplex-chat/simplex-chat" target="_blank">2. simplex-chat / simplex-chat</a></h3>
-            <div class="meta">⭐ 18k · 🔥 +本周6.4k · 📀 Haskell · 📁 开发工具</div>
-            <p class="desc">SimpleX - the first messaging network operating without user identifiers of any kind - 100% private by design! iOS, Android and desktop apps 📱!</p>
-            <div class="topics">🏷️ chat, double-ratchet, e2ee, encryption, haskell</div>
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=43668708" target="_blank">💬 HN: SimpleX – the first messaging operating without user identifiers of any kind (9 pts, 1 cmt)</a></div>
-        </div>
-        
+<!-- ====== 本周之星 ====== -->
+<div class="star-of-week">
+<h2>🏆 本周之星：OpenMontage</h2>
+<p class="star-desc">
+本周最大黑马，单周斩获 <strong>1 万+ Star</strong>，总星数突破 3.2 万。OpenMontage 是全球首个开源的 Agentic 视频制作系统——它不是一个视频编辑工具，而是一套完整的 AI 视频生产管线：12 条流水线、52 个工具、500+ Agent 技能。你只需要用 Claude Code 或 Copilot 描述创意，它就能调度 ffmpeg、ElevenLabs TTS、Stable Diffusion/Flux 图像生成等一系列工具，端到端产出成片。AI Agent 从"写代码"进化到"做视频"，内容创作的自动化边界再次被拓宽。
+</p>
+<div class="star-meta">🔗 <a href="https://github.com/calesthio/OpenMontage" target="_blank">calesthio/OpenMontage</a> · ⭐ 31,742 · Python · AGPL v3</div>
+</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/ripienaar/free-for-dev" target="_blank">3. ripienaar / free-for-dev</a></h3>
-            <div class="meta">⭐ 128k · 🔥 +本周4.4k · 📀 HTML · 📁 基础设施 / DevOps</div>
-            <p class="desc">A list of SaaS, PaaS and IaaS offerings that have free tiers of interest to devops and infradev</p>
-            <div class="topics">🏷️ awesome-list, free-for-developers</div>
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=9323944" target="_blank">💬 HN: A list of SaaS, PaaS, and IaaS tools with free tiers (49 pts, 1 cmt)</a></div>
-        </div>
-        
+<!-- ====== 热门榜单 ====== -->
+<h2 class="section-title">📊 热门榜单 Top 10</h2>
 
-        <div class="repo">
-            <h3><a href="https://github.com/DeusData/codebase-memory-mcp" target="_blank">4. DeusData / codebase-memory-mcp</a></h3>
-            <div class="meta">⭐ 25k · 🔥 +本周9.9k · 📀 C · 📁 AI / 机器学习</div>
-            <p class="desc">High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 158 languages, sub-ms queries, 99% fewer tokens. Single static binary, zero dependencies.</p>
-            <div class="topics">🏷️ aider, ast, claude-code, code-analysis, code-intelligence</div>
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=47659469" target="_blank">💬 HN: Ask HN: SoTA of Context Building Methods (5 pts, 2 cmt)</a></div>
-        </div>
-        
+<div class="repo">
+    <h3><a href="https://github.com/calesthio/OpenMontage" target="_blank">1. calesthio / OpenMontage</a></h3>
+    <div class="meta">⭐ 31.7k · 🔥 +本周 10.2k · 📀 Python · 📁 AI / 机器学习</div>
+    <p class="desc">全球首个开源的 Agentic 视频制作系统。12 条流水线、52 个工具、500+ Agent 技能，将你的 AI 编程助手变成完整的视频制作工作室。</p>
+    <div class="topics"><span>agent</span><span>video-production</span><span>claude</span><span>ffmpeg</span><span>stable-diffusion</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=48740853" target="_blank">💬 HN 讨论 →</a> (最新 3pts)</div>
+</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/kunchenguid/no-mistakes" target="_blank">5. kunchenguid / no-mistakes</a></h3>
-            <div class="meta">⭐ 4.9k · 🔥 +本周2.1k · 📀 Go · 📁 Go 生态</div>
-            <p class="desc">git push no-mistakes</p>
-            
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=47838708" target="_blank">💬 HN: Show HN: Git Push No-Mistakes (19 pts, 6 cmt)</a></div>
-        </div>
-        
+<div class="repo">
+    <h3><a href="https://github.com/DeusData/codebase-memory-mcp" target="_blank">2. DeusData / codebase-memory-mcp</a></h3>
+    <div class="meta">⭐ 24.7k · 🔥 +本周 9.9k · 📀 C · 📁 AI / 机器学习</div>
+    <p class="desc">高性能代码智能 MCP 服务器。将代码库索引为持久化知识图谱，毫秒级索引、亚毫秒查询，节省 99% token。158 种语言支持，单一静态二进制，零依赖。</p>
+    <div class="topics"><span>mcp</span><span>code-intelligence</span><span>knowledge-graph</span><span>claude-code</span><span>cursor</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=48596084" target="_blank">💬 HN 讨论 →</a> (3pts, 2cmt)</div>
+</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/google-labs-code/design.md" target="_blank">6. google-labs-code / design.md</a></h3>
-            <div class="meta">⭐ 24k · 🔥 +本周6.2k · 📀 TypeScript · 📁 AI / 机器学习</div>
-            <p class="desc">A format specification for describing a visual identity to coding agents. DESIGN.md gives agents a persistent, structured understanding of a design system.</p>
-            
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=47887123" target="_blank">💬 HN: Design.md: A format spec for describing a visual identity to coding agents (37 pts, 4 cmt)</a></div>
-        </div>
-        
+<div class="repo">
+    <h3><a href="https://github.com/xbtlin/ai-berkshire" target="_blank">3. xbtlin / ai-berkshire</a></h3>
+    <div class="meta">⭐ 8.7k · 🔥 +本周 7k · 📀 Python · 📁 AI / 机器学习</div>
+    <p class="desc">AI 时代的伯克希尔：基于 Claude Code / Codex 的价值投资研究框架。融合巴菲特、芒格、段永平、李录四大师方法论，多 Agent 并行对抗分析。</p>
+    <div class="topics"><span>ai-agent</span><span>value-investing</span><span>berkshire-hathaway</span><span>stock-analysis</span><span>mcp</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=48704305" target="_blank">💬 HN 讨论 →</a> (2pts)</div>
+</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/calesthio/OpenMontage" target="_blank">7. calesthio / OpenMontage</a></h3>
-            <div class="meta">⭐ 32k · 🔥 +本周10k · 📀 Python · 📁 AI / 机器学习</div>
-            <p class="desc">World's first open-source, agentic video production system. 12 pipelines, 52 tools, 500+ agent skills. Turn your AI coding assistant into a full video production studio.</p>
-            <div class="topics">🏷️ agent, agentic-ai, ai, claude, copilot</div>
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=48616398" target="_blank">💬 HN: OpenMontage: Turn your AI coding assistant into a full video production studio (7 pts, 1 cmt)</a></div>
-        </div>
-        
+<div class="repo">
+    <h3><a href="https://github.com/simplex-chat/simplex-chat" target="_blank">4. simplex-chat / simplex-chat</a></h3>
+    <div class="meta">⭐ 17.7k · 🔥 +本周 6.4k · 📀 Haskell · 📁 通讯 / 隐私</div>
+    <p class="desc">首个不依赖任何用户标识符的通讯网络——100% 隐私优先设计。端到端加密，支持 iOS、Android 和桌面端。</p>
+    <div class="topics"><span>privacy</span><span>e2ee</span><span>messaging</span><span>encryption</span><span>decentralized</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=43668708" target="_blank">💬 HN 讨论 →</a> (9pts, 1cmt)</div>
+</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/Robbyant/lingbot-map" target="_blank">8. Robbyant / lingbot-map</a></h3>
-            <div class="meta">⭐ 9.4k · 🔥 +本周2k · 📀 Python · 📁 AI / 机器学习</div>
-            <p class="desc">A feed-forward 3D foundation model for reconstructing scenes from streaming data</p>
-            
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=47815556" target="_blank">💬 HN: LingBot-Map: Geometric Context Transformer for Streaming 3D Reconstruction (4 pts, 0 cmt)</a></div>
-        </div>
-        
+<div class="repo">
+    <h3><a href="https://github.com/google-labs-code/design.md" target="_blank">5. google-labs-code / design.md</a></h3>
+    <div class="meta">⭐ 24.4k · 🔥 +本周 6.2k · 📀 TypeScript · 📁 AI / 机器学习</div>
+    <p class="desc">Google 推出的视觉标识格式规范，让 AI 编程助手持久、结构化地理解设计系统。DESIGN.md 正在成为 Agent 时代的设计标准。</p>
+    <div class="topics"><span>design-system</span><span>ai-agent</span><span>specification</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=47887123" target="_blank">💬 HN 讨论 →</a> (37pts, 4cmt)</div>
+</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/usestrix/strix" target="_blank">9. usestrix / strix</a></h3>
-            <div class="meta">⭐ 32k · 🔥 +本周4.7k · 📀 Python · 📁 AI / 机器学习</div>
-            <p class="desc">Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.</p>
-            <div class="topics">🏷️ agents, ai-hacking, ai-penetration-testing, ai-pentesting, ai-security</div>
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=44945113" target="_blank">💬 HN: Show HN: Strix - Open-source AI hackers for your apps (102 pts, 15 cmt)</a></div>
-        </div>
-        
+<div class="repo">
+    <h3><a href="https://github.com/JCodesMore/ai-website-cloner-template" target="_blank">6. JCodesMore / ai-website-cloner-template</a></h3>
+    <div class="meta">⭐ 24.9k · 🔥 +本周 4.8k · 📀 TypeScript · 📁 AI / 机器学习</div>
+    <p class="desc">一行命令克隆任何网站。基于 AI 编程 Agent 的网站逆向工程模板，Next.js + Tailwind CSS + shadcn/ui 技术栈。</p>
+    <div class="topics"><span>ai-agents</span><span>web-scraping</span><span>nextjs</span><span>tailwindcss</span><span>reverse-engineering</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=48669537" target="_blank">💬 HN 讨论 →</a> (5pts)</div>
+</div>
 
-        <div class="repo">
-            <h3><a href="https://github.com/JCodesMore/ai-website-cloner-template" target="_blank">10. JCodesMore / ai-website-cloner-template</a></h3>
-            <div class="meta">⭐ 25k · 🔥 +本周4.8k · 📀 TypeScript · 📁 AI / 机器学习</div>
-            <p class="desc">Clone any website with one command using AI coding agents</p>
-            <div class="topics">🏷️ ai, ai-agents, ai-tools, automation, boilerplate</div>
-            <div class="hn"><a href="https://news.ycombinator.com/item?id=48669537" target="_blank">💬 HN: AI-website-cloner-template: Clone any website using AI coding agents (5 pts, 0 cmt)</a></div>
-        </div>
-        
-<div class="footer">由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">查看源代码</a></div>
+<div class="repo">
+    <h3><a href="https://github.com/usestrix/strix" target="_blank">7. usestrix / strix</a></h3>
+    <div class="meta">⭐ 32.2k · 🔥 +本周 4.7k · 📀 Python · 📁 AI / 安全</div>
+    <p class="desc">开源的 AI 渗透测试工具，自动发现并修复应用安全漏洞。Agent 驱动，覆盖 OWASP Top 10。</p>
+    <div class="topics"><span>penetration-testing</span><span>cybersecurity</span><span>ai-pentesting</span><span>bug-bounty</span><span>security-automation</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=44945113" target="_blank">💬 HN 讨论 →</a> (102pts, 15cmt)</div>
+</div>
+
+<div class="repo">
+    <h3><a href="https://github.com/ripienaar/free-for-dev" target="_blank">8. ripienaar / free-for-dev</a></h3>
+    <div class="meta">⭐ 127.8k · 🔥 +本周 4.4k · 📀 HTML · 📁 基础设施 / DevOps</div>
+    <p class="desc">开发者免费资源大全：SaaS、PaaS、IaaS 免费层服务汇总。10 年经典项目，总星数逼近 13 万。</p>
+    <div class="topics"><span>awesome-list</span><span>free-tier</span><span>devops</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=35784381" target="_blank">💬 HN 讨论 →</a> (28pts, 2cmt)</div>
+</div>
+
+<div class="repo">
+    <h3><a href="https://github.com/kunchenguid/no-mistakes" target="_blank">9. kunchenguid / no-mistakes</a></h3>
+    <div class="meta">⭐ 4.9k · 🔥 +本周 2.1k · 📀 Go · 📁 开发工具</div>
+    <p class="desc">git push 前的最后一道防线——自动检查代码中的常见错误，拒绝有问题的提交。简洁实用，Go 写成，跨平台支持。</p>
+    <div class="topics"><span>git</span><span>developer-tools</span><span>code-quality</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=48696013" target="_blank">💬 HN 讨论 →</a> (19pts, 6cmt)</div>
+</div>
+
+<div class="repo">
+    <h3><a href="https://github.com/Robbyant/lingbot-map" target="_blank">10. Robbyant / lingbot-map</a></h3>
+    <div class="meta">⭐ 9.4k · 🔥 +本周 2k · 📀 Python · 📁 AI / 机器学习</div>
+    <p class="desc">前馈式 3D 基础模型，从流式数据中实时重建三维场景。Geometric Context Transformer 架构。</p>
+    <div class="topics"><span>3d-reconstruction</span><span>foundation-model</span><span>computer-vision</span></div>
+    <div class="hn"><a href="https://news.ycombinator.com/item?id=47815556" target="_blank">💬 HN 讨论 →</a> (4pts)</div>
+</div>
+
+<!-- ====== 趋势洞察 ====== -->
+<h2 class="section-title">🧠 本周趋势洞察</h2>
+
+<div class="insight">
+<p><span class="num">1</span><strong>AI Agent 垂直化浪潮不可阻挡。</strong>本周 Top 10 中 7 个是 AI 项目，且全部围绕 Agent 展开——投资、视频、代码智能、设计、渗透测试、网站克隆。Agent 不再只是"写代码的 AI"，而是正在成为每一个专业领域的自动化入口。从金融分析到视频后期，每个垂直行业都在被 Agent 重新定义。</p>
+</div>
+
+<div class="insight">
+<p><span class="num">2</span><strong>大厂开始为 Agent 生态制定标准。</strong>Google 的 design.md（24k stars）和 DeusData 的 codebase-memory-mcp（25k stars）分别从"视觉设计"和"代码理解"两个维度为 AI Agent 建立基础设施。标准化意味着生态即将进入规模化阶段——谁的协议被广泛采纳，谁就掌握了 Agent 时代的"HTTP"。</p>
+</div>
+
+<div class="insight">
+<p><span class="num">3</span><strong>安全与隐私成为 AI 时代的对冲需求。</strong>SimpleX Chat（无标识通讯）涨 6.4k stars，Strix（AI 渗透测试）涨 4.7k stars。AI 让攻击和监控能力同时增强，开发者的安全焦虑同步上升——"用 AI 防 AI"正在成为一个新赛道。</p>
+</div>
+
+<div class="footer">由 Hermes Agent 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">查看源代码</a></div>
 </body>
 </html>
