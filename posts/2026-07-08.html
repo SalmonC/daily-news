@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三文鱼早报 | 2026-07-08</title>
+    <link rel="icon" href="../assets/fish.svg" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        /* Archive collapsible sections */
+        .archive-section {
+            margin-top: 36px;
+        }
+
+        .current-weekly {
+            background: var(--surface);
+            border: 2px solid var(--accent-2);
+            padding: 18px 26px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .current-weekly a {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-2);
+            font-family: 'Bodoni Moda', 'ZCOOL XiaoWei', serif;
+            transition: color 0.2s;
+        }
+
+        .current-weekly a:hover {
+            color: var(--accent);
+        }
+
+        .archive-details {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .archive-details summary {
+            font-family: 'Bodoni Moda', 'ZCOOL XiaoWei', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 18px 26px;
+            cursor: pointer;
+            user-select: none;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            transition: background 0.15s;
+        }
+
+        .archive-details summary::-webkit-details-marker { display: none; }
+        .archive-details summary::marker { display: none; }
+
+        .archive-details summary::before {
+            content: '▸';
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+            color: var(--accent);
+        }
+
+        .archive-details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .archive-details summary:hover {
+            background: var(--accent-light);
+        }
+
+        .archive-count {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-family: 'Literata', 'PingFang SC', serif;
+            font-weight: 400;
+        }
+
+        .archive-paginated {
+            padding: 0 26px 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .archive-item {
+            display: block;
+        }
+
+        .archive-item a {
+            display: block;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--text);
+            transition: all 0.15s;
+            border-radius: 2px;
+        }
+
+        .archive-item a:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+            transform: translateY(-1px);
+            border-color: var(--accent);
+        }
+
+        .archive-item .archive-wd {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--accent-2);
+            font-weight: 600;
+        }
+
+        .load-more-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 0 26px 18px;
+            background: var(--surface-2);
+            border: 1px dashed var(--border);
+            color: var(--muted);
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .load-more-btn:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .load-more-btn.hidden { display: none; }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>🐟 三文鱼早报</h1>
+        <p class="tagline">每日精选 · 热点 · GitHub · 游戏 · 数码</p>
+    </header>
+
+    <div class="post-layout">
+        <aside class="toc-sidebar">
+            <div class="toc-sticky">
+                <div class="toc-title">📖 模块导航</div>
+                <ul class="toc-list"><li class="toc-item"><a href="#sec-warn">⚠️ 异常</a></li><li class="toc-item"><a href="#sec-1">🔥 热点新闻 · 36氪</a></li><li class="toc-item"><a href="#sec-2">🔥 热点新闻 · 雷锋网</a></li><li class="toc-item"><a href="#sec-3">🤖 AI 资讯 · 量子位</a></li><li class="toc-item"><a href="#sec-4">🌍 国际 AI · TechCrunch</a></li><li class="toc-item"><a href="#sec-5">🌍 国际 AI · The Verge</a></li><li class="toc-item"><a href="#sec-6">🌍 国际 AI · VentureBeat</a></li><li class="toc-item"><a href="#sec-7">🌍 国际 AI · AI News</a></li><li class="toc-item"><a href="#sec-8">📱 数码硬件 · IT之家</a></li><li class="toc-item"><a href="#sec-9">📱 数码硬件 · 爱范儿</a></li><li class="toc-item"><a href="#sec-10">🎮 游戏 · 游研社</a></li><li class="toc-item"><a href="#sec-11">🎮 游戏 · 机核网</a></li><li class="toc-item"><a href="#sec-12">💡 科技 · 少数派</a></li></ul>
+            </div>
+        </aside>
+
+        <main class="container post-body">
+            <div class="hero-date">
+                <h2>📰 每日早报 2026-07-08 <span class="weekday">周三</span></h2>
+                <p class="sub">今日精选多个可靠来源，为你摘选热点、AI 动态与数码资讯。</p>
+            </div>
+            <div class="section-card" id="sec-warn" style="border-left-color:#f59e0b">
+<div class="section-title">⚠️ 今日抓取异常</div>
+<div class="item"><div class="item-desc">https://www.theverge.com/rss/index.xml: HTTPSConnectionPool(host='www.theverge.com', port=443): Max retries exceeded with url: /rss/index.xml (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))</div></div>
+<div class="item"><div class="item-desc">https://venturebeat.com/feed: HTTPSConnectionPool(host='venturebeat.com', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))</div></div>
+<div class="item"><div class="item-desc">https://techcrunch.com/feed/: HTTPSConnectionPool(host='techcrunch.com', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))</div></div>
+<div class="item"><div class="item-desc">https://www.artificialintelligence-news.com/feed/: HTTPSConnectionPool(host='www.artificialintelligence-news.com', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)')))</div></div>
+</div>
+<div class="section-card" id="sec-1">
+<div class="section-title">🔥 热点新闻 · 36氪</div>
+<div class="item">
+<div class="item-header"><a href="https://36kr.com/p/3886238403129353?f=rss" target="_blank">8点1氪丨前华为天才少年吐槽DeepSeek面试，称面试官质疑他抄袭；苹果折叠屏已在量产；特朗普呼吁购买戴尔电脑，引发戴尔暴涨百亿美元</a></div>
+<div class="item-desc">今日热点导览 网传“7月1日新规：新车智驾芯片自主化率不低于70%”系谣言 商业银行不良处置仍在加速，上半年全行业转让核销合计至少5000亿 国家外汇管理局：截至2026年6月末，中国外汇储备规模为3…</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://36kr.com/p/3885479689465858?f=rss" target="_blank">「德睿智药」获5200万美元B轮融资，AI设计的减肥药已进入3期临床｜36氪首发</a></div>
+<div class="item-desc">文｜胡香赟 编辑｜海若镜 36 氪获悉，德睿智药近期已完成 5200 万美元B轮融资，投资方包括头部人民币和美元基金，凯乘资本为独家财务顾问。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://36kr.com/p/3885560015220997?f=rss" target="_blank">瑞为技术暗盘破发，收盘跌17%｜敲钟时刻</a></div>
+<div class="item-desc">《敲钟时刻》栏目聚焦企业正式登陆资本市场的关键时刻。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://36kr.com/p/3885481886674951?f=rss" target="_blank">易控智驾暗盘破发：盘中一度跌近两成、收涨4%｜敲钟时刻</a></div>
+<div class="item-desc">《敲钟时刻》栏目聚焦企业正式登陆资本市场的关键时刻。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://36kr.com/p/3885457443385346?f=rss" target="_blank">氪星晚报 ｜苹果折叠屏已在量产；潘功胜：香港可以抓住有利时机，吸引更多主权财富和国际企业到港发债融资</a></div>
+<div class="item-desc">大公司： 网传“7月1日新规：新车智驾芯片自主化率不低于70%”系谣言 36氪获悉，近日，有网民发布题为《7月1日新规正式落地！新车智驾芯片自主化率不低于70%》的文章。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://36kr.com/p/3885415199076352?f=rss" target="_blank">不做fast follow的人，都想创造一个新的世界丨36氪离线聚会第三期</a></div>
+<div class="item-desc">“理性的人让自己适应世界，不理性的人坚持让世界适应自己。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://36kr.com/p/3885413484163074?f=rss" target="_blank">北斗人创业，要建太空数据中心，「星际原点」连续完成两轮数千万元融资｜36氪首发</a></div>
+<div class="item-desc">文 | 阿至 太空算力赛道又有新玩家入场。</div>
+</div>
+</div>
+<div class="section-card" id="sec-2">
+<div class="section-title">🔥 热点新闻 · 雷锋网</div>
+<div class="item">
+<div class="item-header"><a href="https://www.leiphone.com/category/industrynews/MlfOVkSb0uNZp7FF.html" target="_blank">肯德基、蜜雪冰城、瑞幸、高德打车、滴滴等首批接入支付宝AI开放平台</a></div>
+<div class="item-desc">继5月发布AI支付全栈产品、6月发布全新AI版支付宝（简称“阿宝”）后，7月7日，支付宝正式上线 AI 开放平台，面向商家、机构、服务商、智能终端、大模型平台等生态伙伴开放AI接入能力。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.leiphone.com/category/academic/GqOdEOoGq3kVosQr.html" target="_blank">ICML 2026 开幕，清华团队获最佳论文奖，DeepMind 经典巨作拿下时间检验奖</a></div>
+<div class="item-desc">2026 年 7 月 6 日上午，第 43 届国际机器学习大会（ICML 2026）在韩国首尔 COEX 会展中心正式拉开帷幕。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.leiphone.com/category/industrynews/NbapvQnjehTvbr0Y.html" target="_blank">Kimi K2.7 Code 有多能打？找 Bug，写 3D 游戏，2000 行代码砍掉 55％</a></div>
+<div class="item-desc">Kimi K2.7 Code 有多能打？找 Bug，写 3D 游戏，2000 行代码砍掉 55％ “AI 编程的难题，正在从生成转向交付。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.leiphone.com/category/industrynews/8XvhFecsSPFSXrO0.html" target="_blank">支付宝AI生态X申通快递：一句话就能发快递！</a></div>
+<div class="item-desc">“我要寄快递，帮我打开申通。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.leiphone.com/category/industrynews/t6TVK2lTa87laPgR.html" target="_blank">讯飞医疗全栈AI能力亮相2026年数智医学大会，锚定四层创新赋能医疗高质量发展</a></div>
+<div class="item-desc">7月3-5日，2026年数智医学大会（CHINC）在北京召开，本届大会以“智融医学，质筑健康——新质生产力助力健康中国建设”为主题，聚焦AI临床落地、医疗数据治理等核心议题。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.leiphone.com/category/industrynews/TVh2aFeqiItJpsTr.html" target="_blank">拼多多紧急捐赠1000万元，驰援广西防汛救灾</a></div>
+<div class="item-desc">近日，受台风及强降雨影响，广西多地发生严重洪涝灾害，灾区群众的安危冷暖牵动人心。</div>
+</div>
+</div>
+<div class="section-card" id="sec-3">
+<div class="section-title">🤖 AI 资讯 · 量子位</div>
+<div class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/445608.html" target="_blank">DeepSeek招聘被「华为天才少年」公开吐槽，“面到最不专业的”</a></div>
+<div class="item-desc">难怪DeepSeek要着重强调招HR（doge）</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/445443.html" target="_blank">从共识到非共识：科技有「联想」沙龙首场活动直击具身智能产业化“三大困惑”</a></div>
+<div class="item-desc">“共识与非共识”的深度思辨</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/445292.html" target="_blank">我宣布这是中国最神奇的造车新势力</a></div>
+<div class="item-desc">仅靠一款车5年不倒</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/445229.html" target="_blank">让Skill“有图可依”：openJiuwen首发多模态Skill范式Skill-Omni</a></div>
+<div class="item-desc">从文字说明书到多模态经验库</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/445230.html" target="_blank">刚刚，首个空间原生的具身视觉基模开源！机器人更会看我们的世界了</a></div>
+<div class="item-desc">来自蚂蚁灵波</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/445184.html" target="_blank">机器人视觉迎来新突破！蚂蚁灵波空间感知模型LingBot-Depth 2.0正式发布</a></div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/445067.html" target="_blank">征程赶超｜WAIC 2026科学智能：AI4S从“辅助计算”到“自主发现”，中国如何重塑全球科研版图？</a></div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/444859.html" target="_blank">征程赶超｜WAIC 2026理论突破：以数理双向赋能为钥，开启AI范式革新新征程</a></div>
+</div>
+</div>
+<div class="section-card" id="sec-4">
+<div class="section-title">🌍 国际 AI · TechCrunch</div>
+<p class="item-desc">暂无更新或抓取异常。</p>
+</div>
+<div class="section-card" id="sec-5">
+<div class="section-title">🌍 国际 AI · The Verge</div>
+<p class="item-desc">暂无更新或抓取异常。</p>
+</div>
+<div class="section-card" id="sec-6">
+<div class="section-title">🌍 国际 AI · VentureBeat</div>
+<p class="item-desc">暂无更新或抓取异常。</p>
+</div>
+<div class="section-card" id="sec-7">
+<div class="section-title">🌍 国际 AI · AI News</div>
+<p class="item-desc">暂无更新或抓取异常。</p>
+</div>
+<div class="section-card" id="sec-8">
+<div class="section-title">📱 数码硬件 · IT之家</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/973/834.htm" target="_blank">Meta 出新招：若智能眼镜隐私指示灯被人为破坏，就自动关闭摄像头</a></div>
+<div class="item-desc">IT之家 7 月 8 日消息，在智能眼镜引发公众反对之际，Meta 宣布将推出一项新功能。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/973/833.htm" target="_blank">Netflix、迪士尼与 YouTube 有意竞标 2030 及 2034 年世界杯美国转播权：预算达 15~20 亿美元，亚马逊及苹果也可能参与竞争</a></div>
+<div class="item-desc">IT之家 7 月 8 日消息，据 CNBC 当地时间 7 月 7 日报道，多家媒体巨头正筹备挑战福克斯（Fox）在美国市场的世界杯转播权。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/973/832.htm" target="_blank">美国拟放宽 ISP 宽带转嫁费用逐项列出要求，改用“最高不超过”金额</a></div>
+<div class="item-desc">IT之家 7 月 8 日消息，科技媒体 Ars Technica 昨日（7 月 7 日）发布博文，报道称美国联邦通信委员会（FCC）拟在 7 月 22 日会议上表决一项草案命令， 取消互联网服务提供商…</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/973/831.htm" target="_blank">不再强制使用微软账号，必应 Bing 现已开放谷歌、苹果账户登录</a></div>
+<div class="item-desc">IT之家 7 月 8 日消息，Windows Latest 今日报道称，微软已悄然在 Bing 中对登录方式进行了更新，用户现可直接使用 Google 或 Apple 账户完成登录，无需再创建或绑定微…</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/973/830.htm" target="_blank">苹果推送 iOS / iPadOS 26.6 第四个公测版，修复 Bug / 改进安全</a></div>
+<div class="item-desc">IT之家 7 月 8 日消息，苹果公司今天（7 月 8 日）面向公测用户， 推送 iOS 26.6、iPadOS 26.6、macOS Tahoe 26.6、watchOS 26.6 和 tvOS 2…</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/973/829.htm" target="_blank">海韵官网已录入英伟达 RTX 50 SUPER 系列显卡，TDP 数据曝光</a></div>
+<div class="item-desc">IT之家 7 月 8 日消息，电源厂商海韵（Seasonic）在其官网电源瓦数计算器中，悄然增加了英伟达尚未发布的 GeForce RTX 5080 SUPER 显卡选项。</div>
+</div>
+</div>
+<div class="section-card" id="sec-9">
+<div class="section-title">📱 数码硬件 · 爱范儿</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ifanr.com/1671233?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">早报｜曝苹果折叠屏iPhone已在量产/DeepSeek或自研AI推理芯片/今年618手机销量同比下滑13%</a></div>
+<div class="item-desc">· 小米调整小爱同学架构，模型、云端和端侧职责拆分 · 果链巨头立讯精密定于本周四上市 · 华强北商家：图纸全泄露也造不出真 iPhone #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr）…</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ifanr.com/1671223?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">极飞发布了空中及地面农业机器人，打农药这事儿基本不需要人力参与了</a></div>
+<div class="item-desc">农活就得机器人来干。 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ifanr.com/1671185?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">机器人走进产线「打工」，至简动力不想让具身智能停在 PPT 上</a></div>
+<div class="item-desc">具身智能能进厂打工，就是巨大的进步。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ifanr.com/1671062?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">Marshall BROMLEY 450 派对音响：有音效灯效和 40 小时续航，麦克风吉他都能一包带走</a></div>
+<div class="item-desc">街头艺人和露营党的新大件 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ifanr.com/1671120?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">刷完 Fable 5 爆火玩法，我发现自己用 AI 第一步就错了</a></div>
+<div class="item-desc">用聪明的模型，先要承认自己很笨 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.ifanr.com/1671116?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">早报｜曝华为Mate90将搭载「韬定律」新麒麟芯片/英特尔上调CPU售价/企业微信发布AI录音硬件</a></div>
+<div class="item-desc">• 苹果、博通延长合作至 2031 年，将共同开发 AI 定制芯片 • 三星第二季度利润预计增长 18 倍 • 优必选回应仿生机器人争议：定位情感陪伴而非人类伴侣 #欢迎关注爱范儿官方微信公众号：爱范…</div>
+</div>
+</div>
+<div class="section-card" id="sec-10">
+<div class="section-title">🎮 游戏 · 游研社</div>
+<div class="item">
+<div class="item-header"><a href="https://www.yystv.cn/p/14124" target="_blank">冲击下一个捉宠爆款，《伊莫》的细节有点多</a></div>
+<div class="item-desc">昨天（7月2日），由爪印工作室研发的大世界抓宠RPG《伊莫》正式开启了“握爪测试”（三测）。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.yystv.cn/p/14131" target="_blank">一口气裁员3200人，Xbox总裁：我们把战线拉得太长了</a></div>
+<div class="item-desc">前段时间，我们曾报道过Xbox新任CEO阿莎·夏尔玛（Asha Sharma）上任后的 “百日新政” ：在她接手后，微软游戏部门开始重新梳理旗下第一方工作室体系。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.yystv.cn/p/14129" target="_blank">首日预购1.5万份的Steam Machine配件下架，原因：忘了问V社要授权</a></div>
+<div class="item-desc">去年11月12日，Steam Machine消息首曝后的24小时内，一家专做电子设备配件的公司dbrand就火速发布了一张Steam Machine的外壳渲染图：立方体形状，六面中央有一颗粉色爱心。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.yystv.cn/p/14128" target="_blank">一场游戏里的“核事故”，是如何让玩家团结起来的</a></div>
+<div class="item-desc">在我体验过的各式搜打撤游戏里，《三角洲行动》的地图设计一直很接地气。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.yystv.cn/p/14127" target="_blank">为什么互联网大厂里，只有腾讯抓住了游戏成功的确定性？</a></div>
+<div class="item-desc">前几天国内游戏圈有个比较大的新闻：阿里拟70多亿人民币出售的旗下的游戏业务灵犀互娱。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.yystv.cn/p/14126" target="_blank">搜打撤的下一个破局方向，为什么是PVE模式</a></div>
+<div class="item-desc">搜打撤大众化的下一个关键节点。</div>
+</div>
+</div>
+<div class="section-card" id="sec-11">
+<div class="section-title">🎮 游戏 · 机核网</div>
+<div class="item">
+<div class="item-header"><a href="https://www.gcores.com/articles/216867" target="_blank">当“二次元共斗”迎来它的完全形态：《碧蓝幻想 Relink 无尽黄昏》评测</a></div>
+<div class="item-desc">对许多二次元游戏的爱好者而言，《碧蓝幻想 Relink》算得上是一个小小的业界奇迹 —— 要知道这款脱胎于Cygames的王牌IP，在历经各种开发上的波折之后，能与玩家见面就已经实属不易。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.gcores.com/articles/216871" target="_blank">IOI宣布关闭土耳其工作室，重新获得《Project Fantasy》完整版权</a></div>
+<div class="item-desc">IO Interactive 于今日宣布将关闭位于土耳其的伊斯坦布尔工作室并启动裁员程序。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.gcores.com/radios/216725" target="_blank">带孩子不耽误打人！借《PRAGMATA》说说“带子雄狼”故事</a></div>
+<div class="item-desc">本期时间轴制作：天行 “带孩子打人”是一种奇特的乐趣。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.gcores.com/articles/216866" target="_blank">剧场版动画《魔法使之夜》定档2026年11月20日上映</a></div>
+<div class="item-desc">由ufotable（飞碟社）制作的剧场版动画《魔法使之夜》定档2026年11月20日上映。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.gcores.com/radios/216847" target="_blank">【剧透含量 100%】 聊聊《痴迷》和《后室》，录音笔 VOL.736</a></div>
+<div class="item-desc">【录音笔】是GPASS推出的一档会员专享节目，内容来自机核办公室日程生活和工作中的一些短小记录，每期时长十几分钟左右（大概吧）。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://www.gcores.com/articles/216854" target="_blank">【抽奖】星际钻头，挖穿宇宙：《星际深钻》现已正式发售</a></div>
+<div class="item-desc">由 Morse Morse Games 开发，Morse Morse Games 与 NexraGames 联合发行的宇宙采矿冒险游戏《星际深钻》今日正式登陆Steam平台，国区售价38元！ 在游戏中…</div>
+</div>
+</div>
+<div class="section-card" id="sec-12">
+<div class="section-title">💡 科技 · 少数派</div>
+<div class="item">
+<div class="item-header"><a href="https://sspai.com/prime/story/home-made-beverages-2" target="_blank">家庭饮品 DIY 指南（二）：常用液体物料推荐</a></div>
+<div class="item-desc">往期文章：（一）工欲善其事，必先利其器这一篇我来跟大家聊聊各类物料的选择方法。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://sspai.com/post/112017" target="_blank">社区速递 148 | 派友的全屋智能实操、水月雨布丁耳机与MUJI可调节毛巾枕</a></div>
+<div class="item-desc">除了首页时间流和侧栏的精选展位，少数派Matrix社区还有很多优秀内容因条件所限无法得到有效曝光，因此我们决定重启Matrix周报，并在此基础上添加更多社区内容、作者投稿新玩意呈现给大家。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://sspai.com/post/73385" target="_blank">用 Option 给 macOS 操作加点料</a></div>
+<div class="item-desc">Option 做的就和它图标 ⌥ 所展示的那样——展示菜单和选项的另一面。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://sspai.com/post/111655" target="_blank">新手日记的「为什么」与「写什么」</a></div>
+<div class="item-desc">如何迈出日常写作的第一步？</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://sspai.com/post/112010" target="_blank">派早报：Xbox 启动史上最大的业务重组计划等</a></div>
+<div class="item-desc">少数派的近期动态声擎×少数派｜「角落新声」征文活动已经启动。</div>
+</div>
+<div class="item">
+<div class="item-header"><a href="https://sspai.com/post/111999" target="_blank">派评 | 近期值得关注的 App</a></div>
+<div class="item-desc">>下载少数派2.0客户端、关注少数派公众号，解锁全新阅读体验📰>实用、好用的正版软件，少数派为你呈现🚀 查看全文</div>
+</div>
+</div>
+
+            <!-- 本期 AI 周报 -->
+            <div class="current-weekly">🔥 <a href="https://salmonc.github.io/daily-news/posts/github-weekly-06.29-07.03.html" target="_blank">本期 AI 周报（06.29-07.03）→</a></div>
+
+            <!-- 往期存档 -->
+            <div class="archive-section">
+                <details class="archive-details">
+                    <summary>📚 往期日报 <span class="archive-count">(53期)</span></summary>
+                    <div class="archive-paginated" id="daily-archive" data-page="0" data-page-size="10">
+                        <div class="archive-item"><a href="../posts/2026-07-07.html">2026-07-07<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-07-06.html">2026-07-06<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-07-03.html">2026-07-03<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-07-02.html">2026-07-02<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-07-01.html">2026-07-01<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-30.html">2026-06-30<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-29.html">2026-06-29<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-26.html">2026-06-26<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-25.html">2026-06-25<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-24.html">2026-06-24<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-23.html">2026-06-23<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-22.html">2026-06-22<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-19.html">2026-06-19<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-18.html">2026-06-18<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-17.html">2026-06-17<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-16.html">2026-06-16<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-15.html">2026-06-15<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-12.html">2026-06-12<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-11.html">2026-06-11<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-10.html">2026-06-10<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-09.html">2026-06-09<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-08.html">2026-06-08<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-05.html">2026-06-05<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-04.html">2026-06-04<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-03.html">2026-06-03<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-02.html">2026-06-02<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-06-01.html">2026-06-01<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-29.html">2026-05-29<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-28.html">2026-05-28<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-27.html">2026-05-27<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-26.html">2026-05-26<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-25.html">2026-05-25<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-22.html">2026-05-22<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-21.html">2026-05-21<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-20.html">2026-05-20<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-19.html">2026-05-19<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-18.html">2026-05-18<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-15.html">2026-05-15<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-14.html">2026-05-14<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-13.html">2026-05-13<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-12.html">2026-05-12<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-11.html">2026-05-11<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-08.html">2026-05-08<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-05-07.html">2026-05-07<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-28.html">2026-04-28<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-27.html">2026-04-27<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-24.html">2026-04-24<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-23.html">2026-04-23<span class="archive-wd">周四</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-22.html">2026-04-22<span class="archive-wd">周三</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-21.html">2026-04-21<span class="archive-wd">周二</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-20.html">2026-04-20<span class="archive-wd">周一</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-17.html">2026-04-17<span class="archive-wd">周五</span></a></div>
+<div class="archive-item"><a href="../posts/2026-04-16.html">2026-04-16<span class="archive-wd">周四</span></a></div>
+                    </div>
+                    <button class="load-more-btn hidden" id="daily-more" onclick="loadMore('daily-archive')">加载更多...</button>
+                </details>
+
+                <details class="archive-details">
+                    <summary>🔥 往期 AI 周报 <span class="archive-count">(5期)</span></summary>
+                    <div class="archive-paginated" id="weekly-archive" data-page="0" data-page-size="10">
+                        <div class="archive-item"><a href="../posts/github-weekly-06.29-07.03.html">06.29-07.03</a></div>
+<div class="archive-item"><a href="../posts/github-weekly-06.15-06.19.html">06.15-06.19</a></div>
+<div class="archive-item"><a href="../posts/github-weekly-05.25-05.29.html">05.25-05.29</a></div>
+<div class="archive-item"><a href="../posts/github-weekly-05.18-05.22.html">05.18-05.22</a></div>
+<div class="archive-item"><a href="../posts/github-weekly-04.20-04.24.html">04.20-04.24</a></div>
+                    </div>
+                    <button class="load-more-btn hidden" id="weekly-more" onclick="loadMore('weekly-archive')">加载更多...</button>
+                </details>
+            </div>
+
+            <footer class="site-footer" style="border-top:none;margin-top:10px;">
+                <p>✅ 早报由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a> · <a href="../index.html">返回首页</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+    (function() {
+        function initPagination(container) {
+            var items = container.querySelectorAll('.archive-item');
+            var pageSize = parseInt(container.dataset.pageSize) || 10;
+            var moreBtn = document.getElementById(container.id + '-more');
+            if (!moreBtn) return;
+
+            if (items.length <= pageSize) {
+                moreBtn.classList.add('hidden');
+                return;
+            }
+
+            items.forEach(function(item, i) {
+                if (i >= pageSize) item.style.display = 'none';
+            });
+            moreBtn.classList.remove('hidden');
+        }
+
+        window.loadMore = function(containerId) {
+            var container = document.getElementById(containerId);
+            var items = container.querySelectorAll('.archive-item');
+            var pageSize = parseInt(container.dataset.pageSize) || 10;
+            var currentPage = parseInt(container.dataset.page) || 0;
+            var nextPage = currentPage + 1;
+            var startIdx = nextPage * pageSize;
+            var endIdx = startIdx + pageSize;
+
+            items.forEach(function(item, i) {
+                if (i >= startIdx && i < endIdx) item.style.display = '';
+            });
+
+            container.dataset.page = nextPage;
+
+            if (endIdx >= items.length) {
+                var moreBtn = document.getElementById(containerId + '-more');
+                if (moreBtn) moreBtn.classList.add('hidden');
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.archive-paginated').forEach(initPagination);
+        });
+    })();
+    </script>
+</body>
+</html>
