@@ -69,76 +69,19 @@ a { color: inherit; text-decoration: none; }
   75% { transform: translateY(4px) rotate(-2deg); }
 }
 
-/* ═══════════ CSS Doro Mascot ═══════════ */
+/* ═══════════ Doro Mascot ═══════════ */
 .doro-mascot {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 8px;
+  animation: doroWiggle 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(255,107,138,0.25));
 }
 
-.doro-face {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #FF6B8A, #FF85A2);
-  border-radius: 44% 44% 48% 48%;
-  position: relative;
-  box-shadow: 0 6px 20px rgba(255,107,138,0.30);
-  animation: doroBounce 3s ease-in-out infinite;
-}
-
-@keyframes doroBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* Eyes */
-.doro-eye {
-  position: absolute;
-  top: 26px;
-  width: 20px;
-  height: 22px;
-  background: #FFFFFF;
-  border-radius: 50%;
-  box-shadow: inset 0 -2px 3px rgba(0,0,0,0.06);
-}
-.doro-eye--left  { left: 14px; }
-.doro-eye--right { right: 14px; }
-
-/* Pupils */
-.doro-eye::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 10px;
-  background: #2D2A2C;
-  border-radius: 50%;
-}
-
-/* Blush */
-.doro-blush {
-  position: absolute;
-  top: 44px;
-  width: 14px;
-  height: 8px;
-  background: rgba(255,255,255,0.35);
-  border-radius: 50%;
-}
-.doro-blush--left  { left: 6px; }
-.doro-blush--right { right: 6px; }
-
-/* Mouth */
-.doro-mouth {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 22px;
-  height: 10px;
-  border-bottom: 3px solid #FFFFFF;
-  border-radius: 0 0 50% 50%;
+@keyframes doroWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
 }
 
 /* ═══════════ Header ═══════════ */
@@ -445,12 +388,5 @@ main.container { padding: 0; }
   .hero-date h2 { font-size: 1.4rem; }
   .section-card { padding: 20px 18px; }
   .doro-deco { display: none; }
-  .doro-face { width: 64px; height: 64px; }
-  .doro-eye { top: 20px; width: 16px; height: 18px; }
-  .doro-eye--left { left: 11px; }
-  .doro-eye--right { right: 11px; }
-  .doro-blush { top: 36px; width: 12px; height: 6px; }
-  .doro-blush--left { left: 5px; }
-  .doro-blush--right { right: 5px; }
-  .doro-mouth { bottom: 14px; width: 18px; height: 8px; }
+  .doro-mascot { font-size: 2.4rem; }
 }
