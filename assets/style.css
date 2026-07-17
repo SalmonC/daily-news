@@ -65,9 +65,9 @@ a {
   bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 72px;
   height: 4px;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
 }
 
 .site-header h1 {
@@ -197,10 +197,11 @@ main.container { padding: 0; }
 }
 
 .hero-date .sub {
-  color: var(--muted);
+  color: var(--accent-2);
   font-size: 0.95rem;
   margin-top: 14px;
   font-style: italic;
+  opacity: 0.9;
 }
 
 /* Cards */
@@ -225,9 +226,9 @@ main.container { padding: 0; }
   position: absolute;
   top: 0;
   left: 0;
-  width: 6px;
+  width: 5px;
   height: 100%;
-  background: var(--accent);
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
 }
 
 .section-title {
