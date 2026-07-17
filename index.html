@@ -3,36 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>三文鱼早报</title>
-    <link rel="icon" href="assets/fish.svg" sizes="any" type="image/svg+xml">
+    <title>Doro日报</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FF6B8A'/><circle cx='35' cy='40' r='10' fill='white'/><circle cx='65' cy='40' r='10' fill='white'/><circle cx='35' cy='42' r='5' fill='%232D2A2C'/><circle cx='65' cy='42' r='5' fill='%232D2A2C'/><path d='M35 62 Q50 78 65 62' stroke='%232D2A2C' stroke-width='3' fill='none' stroke-linecap='round'/></svg>" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+    <div class="doro-deco doro-deco--tl" aria-hidden="true">(◕‿◕)</div>
+    <div class="doro-deco doro-deco--tr" aria-hidden="true">🐾</div>
+
     <header class="site-header">
-        <h1>🐟 三文鱼早报</h1>
-        <p class="tagline">每日精选 · 热点 · GitHub · 游戏 · 数码</p>
+        <div class="doro-mascot" aria-hidden="true">
+            <div class="doro-face">
+                <div class="doro-eye doro-eye--left"></div>
+                <div class="doro-eye doro-eye--right"></div>
+                <div class="doro-blush doro-blush--left"></div>
+                <div class="doro-blush doro-blush--right"></div>
+                <div class="doro-mouth"></div>
+            </div>
+        </div>
+        <h1>Doro日报</h1>
+        <p class="tagline">哼哼～Doro 帮你筛的新闻，趁热看！</p>
     </header>
 
     <div class="post-layout">
         <aside class="toc-sidebar">
             <div class="toc-sticky">
-                <div class="toc-title">📖 模块导航</div>
+                <div class="toc-title">📋 快速导航</div>
                 <ul id="toc-list" class="toc-list"></ul>
             </div>
         </aside>
 
         <main class="container">
             <div id="latest-post">
-                <p class="loading">正在加载最新早报...</p>
+                <p class="loading">Doro 正在加载最新日报...</p>
             </div>
 
-            <section class="archive">
-                <h2>📅 历史归档</h2>
+            <section class="archive" style="margin-top:40px;">
+                <h2 style="font-weight:800;font-size:1.3rem;margin-bottom:18px;color:var(--accent-dark);">📅 往期存档</h2>
                 <ul id="archive-list" class="archive-list"></ul>
             </section>
 
             <footer class="site-footer">
-                <p>由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a></p>
+                <div class="footer-doro" aria-hidden="true">(●'◡'●)</div>
+                <p>Doro日报由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a></p>
             </footer>
         </main>
     </div>

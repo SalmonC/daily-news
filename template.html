@@ -4,47 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doro日报 | {{date}}</title>
-    <link rel="icon" href="../assets/fish.svg" sizes="any" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FF6B8A'/><circle cx='35' cy='40' r='10' fill='white'/><circle cx='65' cy='40' r='10' fill='white'/><circle cx='35' cy='42' r='5' fill='%232D2A2C'/><circle cx='65' cy='42' r='5' fill='%232D2A2C'/><path d='M35 62 Q50 78 65 62' stroke='%232D2A2C' stroke-width='3' fill='none' stroke-linecap='round'/></svg>" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="../assets/style.css">
     <style>
-        /* Archive collapsible sections */
-        .archive-section {
-            margin-top: 36px;
-        }
-
+        /* Archive sections — keep in template for dynamic content */
+        .archive-section { margin-top: 48px; }
         .current-weekly {
-            background: var(--surface);
-            border: 2px solid var(--accent-2);
-            padding: 18px 26px;
+            background: var(--card);
+            border: 2px solid var(--accent-light);
+            border-radius: var(--radius);
+            padding: 20px 28px;
             margin-bottom: 24px;
-            box-shadow: var(--shadow);
             text-align: center;
         }
-
         .current-weekly a {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: var(--accent-2);
-            font-family: 'Bodoni Moda', 'ZCOOL XiaoWei', serif;
+            color: var(--accent);
             transition: color 0.2s;
         }
-
-        .current-weekly a:hover {
-            color: var(--accent);
-        }
-
+        .current-weekly a:hover { color: var(--accent-dark); }
         .archive-details {
-            background: var(--surface);
-            border: 2px solid var(--border);
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
         }
-
         .archive-details summary {
-            font-family: 'Bodoni Moda', 'ZCOOL XiaoWei', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            padding: 18px 26px;
+            padding: 16px 24px;
             cursor: pointer;
             user-select: none;
             list-style: none;
@@ -52,113 +41,99 @@
             align-items: center;
             gap: 8px;
             color: var(--text);
-            transition: background 0.15s;
+            border-radius: var(--radius);
+            transition: background 0.2s;
         }
-
         .archive-details summary::-webkit-details-marker { display: none; }
         .archive-details summary::marker { display: none; }
-
         .archive-details summary::before {
             content: '▸';
             display: inline-block;
-            font-size: 0.9rem;
-            transition: transform 0.2s;
+            font-size: 0.85rem;
+            transition: transform 0.25s;
             color: var(--accent);
         }
-
-        .archive-details[open] summary::before {
-            transform: rotate(90deg);
-        }
-
-        .archive-details summary:hover {
-            background: var(--accent-light);
-        }
-
-        .archive-count {
-            font-size: 0.85rem;
-            color: var(--muted);
-            font-family: 'Literata', 'PingFang SC', serif;
-            font-weight: 400;
-        }
-
+        .archive-details[open] summary::before { transform: rotate(90deg); }
+        .archive-details summary:hover { background: var(--accent-bg); }
+        .archive-count { font-size: 0.82rem; color: var(--muted); font-weight: 400; }
         .archive-paginated {
-            padding: 0 26px 18px;
+            padding: 8px 24px 18px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 10px;
         }
-
-        .archive-item {
-            display: block;
-        }
-
         .archive-item a {
             display: block;
-            background: var(--surface-2);
+            background: var(--bg);
             border: 1px solid var(--border);
+            border-radius: 10px;
             padding: 10px 14px;
             text-align: center;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--text);
-            transition: all 0.15s;
-            border-radius: 2px;
+            transition: all 0.2s;
         }
-
         .archive-item a:hover {
-            background: var(--accent-light);
-            color: var(--accent);
-            transform: translateY(-1px);
+            background: var(--accent-bg);
             border-color: var(--accent);
+            transform: translateY(-1px);
         }
-
         .archive-item .archive-wd {
             display: block;
-            font-size: 0.75rem;
-            color: var(--accent-2);
+            font-size: 0.73rem;
+            color: var(--accent);
             font-weight: 600;
         }
-
         .load-more-btn {
             display: block;
-            width: 100%;
+            width: calc(100% - 48px);
             padding: 12px;
-            margin: 0 26px 18px;
-            background: var(--surface-2);
+            margin: 0 24px 18px;
+            background: var(--bg);
             border: 1px dashed var(--border);
+            border-radius: 10px;
             color: var(--muted);
             font-family: inherit;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all 0.2s;
         }
-
-        .load-more-btn:hover {
-            background: var(--accent-light);
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
+        .load-more-btn:hover { background: var(--accent-bg); color: var(--accent); border-color: var(--accent); }
         .load-more-btn.hidden { display: none; }
     </style>
 </head>
 <body>
+    <!-- Floating Doro decorations -->
+    <div class="doro-deco doro-deco--tl" aria-hidden="true">(◕‿◕)</div>
+    <div class="doro-deco doro-deco--tr" aria-hidden="true">🐾</div>
+
     <header class="site-header">
-        <h1>🗞️ Doro日报</h1>
-        <p class="tagline">Doro 帮你筛新闻 · 热点 / AI / 游戏 / 数码</p>
+        <div class="doro-mascot" aria-hidden="true">
+            <div class="doro-face">
+                <div class="doro-eye doro-eye--left"></div>
+                <div class="doro-eye doro-eye--right"></div>
+                <div class="doro-blush doro-blush--left"></div>
+                <div class="doro-blush doro-blush--right"></div>
+                <div class="doro-mouth"></div>
+            </div>
+        </div>
+        <h1>Doro日报</h1>
+        <p class="tagline">哼哼～Doro 帮你筛的新闻，趁热看！</p>
     </header>
 
     <div class="post-layout">
         <aside class="toc-sidebar">
             <div class="toc-sticky">
-                <div class="toc-title">📖 模块导航</div>
+                <div class="toc-title">📋 今日速览</div>
                 {{toc}}
             </div>
         </aside>
 
         <main class="container post-body">
             <div class="hero-date">
-                <h2>🗞️ Doro日报 {{date}} <span class="weekday">{{weekday}}</span></h2>
-                <p class="sub">哼哼～今天的新闻 Doro 帮你筛好了，趁热看！</p>
+                <div class="hero-badge">🗞️ {{weekday}}特供</div>
+                <h2>Doro日报 <span class="date-num">{{date}}</span></h2>
+                <p class="sub">12 个信源 · 新鲜出炉 · 趁热阅读</p>
             </div>
             {{sections}}
 
@@ -184,8 +159,9 @@
                 </details>
             </div>
 
-            <footer class="site-footer" style="border-top:none;margin-top:10px;">
-                <p>✅ Doro日报由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a> · <a href="../index.html">返回首页</a></p>
+            <footer class="site-footer">
+                <div class="footer-doro" aria-hidden="true">(●'◡'●)</div>
+                <p>Doro日报由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a> · <a href="../index.html">返回首页</a></p>
             </footer>
         </main>
     </div>
@@ -197,18 +173,10 @@
             var pageSize = parseInt(container.dataset.pageSize) || 10;
             var moreBtn = document.getElementById(container.id + '-more');
             if (!moreBtn) return;
-
-            if (items.length <= pageSize) {
-                moreBtn.classList.add('hidden');
-                return;
-            }
-
-            items.forEach(function(item, i) {
-                if (i >= pageSize) item.style.display = 'none';
-            });
+            if (items.length <= pageSize) { moreBtn.classList.add('hidden'); return; }
+            items.forEach(function(item, i) { if (i >= pageSize) item.style.display = 'none'; });
             moreBtn.classList.remove('hidden');
         }
-
         window.loadMore = function(containerId) {
             var container = document.getElementById(containerId);
             var items = container.querySelectorAll('.archive-item');
@@ -217,19 +185,13 @@
             var nextPage = currentPage + 1;
             var startIdx = nextPage * pageSize;
             var endIdx = startIdx + pageSize;
-
-            items.forEach(function(item, i) {
-                if (i >= startIdx && i < endIdx) item.style.display = '';
-            });
-
+            items.forEach(function(item, i) { if (i >= startIdx && i < endIdx) item.style.display = ''; });
             container.dataset.page = nextPage;
-
             if (endIdx >= items.length) {
                 var moreBtn = document.getElementById(containerId + '-more');
                 if (moreBtn) moreBtn.classList.add('hidden');
             }
         };
-
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.archive-paginated').forEach(initPagination);
         });
