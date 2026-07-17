@@ -3,45 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff8fb">
+    <meta name="description" content="Doro 为主人筛选的每日科技与 AI 新闻简报。">
     <title>Doro日报</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FF6B8A'/><path d='M50 75 L28 52 A18 18 0 0 1 50 35 A18 18 0 0 1 72 52 Z' fill='white'/></svg>" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23ED8EB3'/><circle cx='35' cy='45' r='7' fill='%235A4160'/><circle cx='65' cy='45' r='7' fill='%235A4160'/><path d='M42 64 Q50 70 58 64' fill='none' stroke='%235A4160' stroke-width='5' stroke-linecap='round'/></svg>" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/style.css?v=20260717-doro">
 </head>
-<body>
-    <div class="doro-deco doro-deco--tl" aria-hidden="true">(◍•ᴗ•◍)♡</div>
-    <div class="doro-deco doro-deco--tr" aria-hidden="true">～(∠・ω&lt; )⌒★</div>
+<body data-page="home">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 
     <header class="site-header">
-        <div class="doro-mascot" aria-hidden="true">₍ᐢ.ˬ.ᐢ₎</div>
-        <h1>Doro日报</h1>
-        <p class="tagline">哼哼～Doro 帮你筛的新闻，趁热看！</p>
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="Doro日报首页">
+                <img class="brand-sprites" src="assets/doro-sprites.png" alt="" aria-hidden="true">
+                <span class="brand-copy">
+                    <strong>Doro日报</strong>
+                    <small>DORO // DAILY INTELLIGENCE</small>
+                </span>
+            </a>
+            <nav class="header-actions" aria-label="页头导航">
+                <span class="doro-signal"><i></i>Doro 已上线</span>
+                <a href="#archive-list">往期存档</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="post-layout">
-        <aside class="toc-sidebar">
-            <div class="toc-sticky">
-                <div class="toc-title">📋 快速导航</div>
-                <ul id="toc-list" class="toc-list"></ul>
-            </div>
-        </aside>
+    <main class="home-shell" id="main-content">
+        <section class="home-intro">
+            <div class="hero-eyebrow"><span>ONLINE</span> DORO'S NEWSROOM</div>
+            <h1>可爱地盯住<br>这个世界。</h1>
+            <p>Doro 每个工作日替主人筛选科技、AI、商业与游戏资讯。信息要清楚，版面要舒服，偶尔也可以稍微诡异一点。</p>
+        </section>
 
-        <main class="container">
-            <div id="latest-post">
-                <p class="loading">Doro 正在加载最新日报...</p>
-            </div>
+        <div class="latest-label">
+            <h2>今天值得盯的</h2>
+            <span>标题是结论，摘要是上下文，链接是证据。</span>
+        </div>
 
-            <section class="archive" style="margin-top:40px;">
-                <h2 style="font-weight:800;font-size:1.3rem;margin-bottom:18px;color:var(--accent-dark);">📅 往期存档</h2>
-                <ul id="archive-list" class="archive-list"></ul>
+        <div class="home-layout">
+            <section class="home-latest" id="latest-post" aria-live="polite">
+                <p class="loading">Doro 正在把最新日报拖过来……</p>
             </section>
 
-            <footer class="site-footer">
-                <div class="footer-doro" aria-hidden="true">( ´ ▽ ` )ﾉ</div>
-                <p>Doro日报由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a></p>
-            </footer>
-        </main>
-    </div>
+            <aside class="home-archive" aria-labelledby="home-archive-title">
+                <span class="archive-kicker">DORO'S MEMORY</span>
+                <h2 id="home-archive-title">往期日报</h2>
+                <ul id="archive-list" class="archive-list"></ul>
+            </aside>
+        </div>
 
-    <script src="assets/main.js"></script>
+        <footer class="site-footer">
+            <img src="assets/doro-sprites.png" alt="三只像素 Doro 正在值班">
+            <p><strong>Doro日报</strong>由 Hermes 自动生成</p>
+            <div class="footer-links">
+                <a href="https://github.com/salmonc/daily-news" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+            <small>哼哼，今天也没有让重要新闻从眼皮底下溜走。</small>
+        </footer>
+    </main>
+
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">↑</button>
+    <script src="assets/main.js?v=20260717-doro"></script>
 </body>
 </html>

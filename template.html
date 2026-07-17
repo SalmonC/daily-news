@@ -3,191 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff8fb">
+    <meta name="description" content="Doro 为主人筛选的每日科技与 AI 新闻简报。">
     <title>Doro日报 | {{date}}</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FF6B8A'/><path d='M50 75 L28 52 A18 18 0 0 1 50 35 A18 18 0 0 1 72 52 Z' fill='white'/></svg>" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/style.css">
-    <style>
-        /* Archive sections — keep in template for dynamic content */
-        .archive-section { margin-top: 48px; }
-        .current-weekly {
-            background: var(--card);
-            border: 2px solid var(--accent-light);
-            border-radius: var(--radius);
-            padding: 20px 28px;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        .current-weekly a {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--accent);
-            transition: color 0.2s;
-        }
-        .current-weekly a:hover { color: var(--accent-dark); }
-        .archive-details {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            margin-bottom: 16px;
-        }
-        .archive-details summary {
-            font-size: 1.1rem;
-            font-weight: 700;
-            padding: 16px 24px;
-            cursor: pointer;
-            user-select: none;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text);
-            border-radius: var(--radius);
-            transition: background 0.2s;
-        }
-        .archive-details summary::-webkit-details-marker { display: none; }
-        .archive-details summary::marker { display: none; }
-        .archive-details summary::before {
-            content: '▸';
-            display: inline-block;
-            font-size: 0.85rem;
-            transition: transform 0.25s;
-            color: var(--accent);
-        }
-        .archive-details[open] summary::before { transform: rotate(90deg); }
-        .archive-details summary:hover { background: var(--accent-bg); }
-        .archive-count { font-size: 0.82rem; color: var(--muted); font-weight: 400; }
-        .archive-paginated {
-            padding: 8px 24px 18px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-        }
-        .archive-item a {
-            display: block;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 10px 14px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text);
-            transition: all 0.2s;
-        }
-        .archive-item a:hover {
-            background: var(--accent-bg);
-            border-color: var(--accent);
-            transform: translateY(-1px);
-        }
-        .archive-item .archive-wd {
-            display: block;
-            font-size: 0.73rem;
-            color: var(--accent);
-            font-weight: 600;
-        }
-        .load-more-btn {
-            display: block;
-            width: calc(100% - 48px);
-            padding: 12px;
-            margin: 0 24px 18px;
-            background: var(--bg);
-            border: 1px dashed var(--border);
-            border-radius: 10px;
-            color: var(--muted);
-            font-family: inherit;
-            font-size: 0.88rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .load-more-btn:hover { background: var(--accent-bg); color: var(--accent); border-color: var(--accent); }
-        .load-more-btn.hidden { display: none; }
-    </style>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23ED8EB3'/><circle cx='35' cy='45' r='7' fill='%235A4160'/><circle cx='65' cy='45' r='7' fill='%235A4160'/><path d='M42 64 Q50 70 58 64' fill='none' stroke='%235A4160' stroke-width='5' stroke-linecap='round'/></svg>" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/style.css?v=20260717-doro">
 </head>
-<body>
-    <!-- Floating Doro decorations -->
-    <div class="doro-deco doro-deco--tl" aria-hidden="true">(◍•ᴗ•◍)♡</div>
-    <div class="doro-deco doro-deco--tr" aria-hidden="true">～(∠・ω&lt; )⌒★</div>
+<body data-page="post">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 
     <header class="site-header">
-        <div class="doro-mascot" aria-hidden="true">₍ᐢ.ˬ.ᐢ₎</div>
-        <h1>Doro日报</h1>
-        <p class="tagline">哼哼～Doro 帮你筛的新闻，趁热看！</p>
+        <div class="header-inner">
+            <a class="brand" href="../index.html" aria-label="Doro日报首页">
+                <img class="brand-sprites" src="../assets/doro-sprites.png" alt="" aria-hidden="true">
+                <span class="brand-copy">
+                    <strong>Doro日报</strong>
+                    <small>DORO // DAILY INTELLIGENCE</small>
+                </span>
+            </a>
+            <nav class="header-actions" aria-label="页头导航">
+                <span class="doro-signal"><i></i>Doro 已上线</span>
+                <a href="#archive">往期存档</a>
+            </nav>
+        </div>
     </header>
 
     <div class="post-layout">
-        <aside class="toc-sidebar">
+        <aside class="toc-sidebar" aria-label="今日速览">
             <div class="toc-sticky">
-                <div class="toc-title">📋 今日速览</div>
+                <div class="toc-kicker">TODAY'S QUEUE</div>
+                <div class="toc-title">今日速览</div>
                 {{toc}}
+                <div class="toc-note">
+                    <span>盯——</span>
+                    Doro 已经替主人翻过一遍了。
+                </div>
             </div>
         </aside>
 
-        <main class="container post-body">
-            <div class="hero-date">
-                <div class="hero-badge">🗞️ {{weekday}}特供</div>
-                <h2>Doro日报 <span class="date-num">{{date}}</span></h2>
-                <p class="sub">12 个信源 · 新鲜出炉 · 趁热阅读</p>
+        <main class="container post-body" id="main-content">
+            <section class="hero-date" aria-labelledby="daily-title">
+                <div class="hero-content">
+                    <div class="hero-eyebrow"><span>{{weekday}}</span> MORNING BRIEF</div>
+                    <h1 id="daily-title">Doro日报</h1>
+                    <p class="hero-date-number">{{date}}</p>
+                    <p class="sub"><b>{{source_count}}</b> 个信源 · 已筛选 · 适合趁热阅读</p>
+                    <p class="hero-whisper">“新闻很多。Doro 只把值得盯的留下来。”</p>
+                </div>
+            </section>
+
+            <div class="content-intro">
+                <span>01</span>
+                <p>今日情报已按信源整理。标题负责告诉你发生了什么，摘要负责判断值不值得点开。</p>
             </div>
+
             {{sections}}
 
-            <!-- 本期 AI 周报 -->
             {{current_weekly_url}}
 
-            <!-- 往期存档 -->
-            <div class="archive-section">
+            <section class="archive-section" id="archive" aria-labelledby="archive-title">
+                <div class="archive-heading">
+                    <div>
+                        <span class="archive-kicker">DORO'S MEMORY</span>
+                        <h2 id="archive-title">往期存档</h2>
+                    </div>
+                    <p>过去发生的事，Doro 也没有忘。</p>
+                </div>
+
                 <details class="archive-details">
-                    <summary>📚 往期日报 <span class="archive-count">({{daily_count}}期)</span></summary>
+                    <summary>往期日报 <span class="archive-count">{{daily_count}} 期</span></summary>
                     <div class="archive-paginated" id="daily-archive" data-page="0" data-page-size="10">
                         {{daily_archive}}
                     </div>
-                    <button class="load-more-btn hidden" id="daily-more" onclick="loadMore('daily-archive')">加载更多...</button>
+                    <button class="load-more-btn hidden" id="daily-archive-more" type="button" data-load-more="daily-archive">再放出一些</button>
                 </details>
 
                 <details class="archive-details">
-                    <summary>🔥 往期 AI 周报 <span class="archive-count">({{weekly_count}}期)</span></summary>
+                    <summary>AI 周报 <span class="archive-count">{{weekly_count}} 期</span></summary>
                     <div class="archive-paginated" id="weekly-archive" data-page="0" data-page-size="10">
                         {{weekly_archive}}
                     </div>
-                    <button class="load-more-btn hidden" id="weekly-more" onclick="loadMore('weekly-archive')">加载更多...</button>
+                    <button class="load-more-btn hidden" id="weekly-archive-more" type="button" data-load-more="weekly-archive">再放出一些</button>
                 </details>
-            </div>
+            </section>
 
             <footer class="site-footer">
-                <div class="footer-doro" aria-hidden="true">( ´ ▽ ` )ﾉ</div>
-                <p>Doro日报由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a> · <a href="../index.html">返回首页</a></p>
+                <img src="../assets/doro-sprites.png" alt="三只像素 Doro 正在值班">
+                <p><strong>Doro日报</strong>由 Hermes 自动生成</p>
+                <div class="footer-links">
+                    <a href="https://github.com/salmonc/daily-news" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="../index.html">返回首页</a>
+                </div>
+                <small>可爱归可爱，来源还是要自己点开确认。哼哼。</small>
             </footer>
         </main>
     </div>
 
-    <script>
-    (function() {
-        function initPagination(container) {
-            var items = container.querySelectorAll('.archive-item');
-            var pageSize = parseInt(container.dataset.pageSize) || 10;
-            var moreBtn = document.getElementById(container.id + '-more');
-            if (!moreBtn) return;
-            if (items.length <= pageSize) { moreBtn.classList.add('hidden'); return; }
-            items.forEach(function(item, i) { if (i >= pageSize) item.style.display = 'none'; });
-            moreBtn.classList.remove('hidden');
-        }
-        window.loadMore = function(containerId) {
-            var container = document.getElementById(containerId);
-            var items = container.querySelectorAll('.archive-item');
-            var pageSize = parseInt(container.dataset.pageSize) || 10;
-            var currentPage = parseInt(container.dataset.page) || 0;
-            var nextPage = currentPage + 1;
-            var startIdx = nextPage * pageSize;
-            var endIdx = startIdx + pageSize;
-            items.forEach(function(item, i) { if (i >= startIdx && i < endIdx) item.style.display = ''; });
-            container.dataset.page = nextPage;
-            if (endIdx >= items.length) {
-                var moreBtn = document.getElementById(containerId + '-more');
-                if (moreBtn) moreBtn.classList.add('hidden');
-            }
-        };
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.archive-paginated').forEach(initPagination);
-        });
-    })();
-    </script>
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">↑</button>
+    <script src="../assets/main.js?v=20260717-doro"></script>
 </body>
 </html>

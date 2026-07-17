@@ -3,422 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff8fb">
+    <meta name="description" content="Doro 为主人筛选的每日科技与 AI 新闻简报。">
     <title>Doro日报 | 2026-07-17</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FF6B8A'/><path d='M50 75 L28 52 A18 18 0 0 1 50 35 A18 18 0 0 1 72 52 Z' fill='white'/></svg>" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/style.css">
-    <style>
-        /* Archive sections — keep in template for dynamic content */
-        .archive-section { margin-top: 48px; }
-        .current-weekly {
-            background: var(--card);
-            border: 2px solid var(--accent-light);
-            border-radius: var(--radius);
-            padding: 20px 28px;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        .current-weekly a {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--accent);
-            transition: color 0.2s;
-        }
-        .current-weekly a:hover { color: var(--accent-dark); }
-        .archive-details {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            margin-bottom: 16px;
-        }
-        .archive-details summary {
-            font-size: 1.1rem;
-            font-weight: 700;
-            padding: 16px 24px;
-            cursor: pointer;
-            user-select: none;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text);
-            border-radius: var(--radius);
-            transition: background 0.2s;
-        }
-        .archive-details summary::-webkit-details-marker { display: none; }
-        .archive-details summary::marker { display: none; }
-        .archive-details summary::before {
-            content: '▸';
-            display: inline-block;
-            font-size: 0.85rem;
-            transition: transform 0.25s;
-            color: var(--accent);
-        }
-        .archive-details[open] summary::before { transform: rotate(90deg); }
-        .archive-details summary:hover { background: var(--accent-bg); }
-        .archive-count { font-size: 0.82rem; color: var(--muted); font-weight: 400; }
-        .archive-paginated {
-            padding: 8px 24px 18px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-        }
-        .archive-item a {
-            display: block;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 10px 14px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text);
-            transition: all 0.2s;
-        }
-        .archive-item a:hover {
-            background: var(--accent-bg);
-            border-color: var(--accent);
-            transform: translateY(-1px);
-        }
-        .archive-item .archive-wd {
-            display: block;
-            font-size: 0.73rem;
-            color: var(--accent);
-            font-weight: 600;
-        }
-        .load-more-btn {
-            display: block;
-            width: calc(100% - 48px);
-            padding: 12px;
-            margin: 0 24px 18px;
-            background: var(--bg);
-            border: 1px dashed var(--border);
-            border-radius: 10px;
-            color: var(--muted);
-            font-family: inherit;
-            font-size: 0.88rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .load-more-btn:hover { background: var(--accent-bg); color: var(--accent); border-color: var(--accent); }
-        .load-more-btn.hidden { display: none; }
-    </style>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23ED8EB3'/><circle cx='35' cy='45' r='7' fill='%235A4160'/><circle cx='65' cy='45' r='7' fill='%235A4160'/><path d='M42 64 Q50 70 58 64' fill='none' stroke='%235A4160' stroke-width='5' stroke-linecap='round'/></svg>" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/style.css?v=20260717-doro">
 </head>
-<body>
-    <!-- Floating Doro decorations -->
-    <div class="doro-deco doro-deco--tl" aria-hidden="true">(◍•ᴗ•◍)♡</div>
-    <div class="doro-deco doro-deco--tr" aria-hidden="true">～(∠・ω&lt; )⌒★</div>
+<body data-page="post">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 
     <header class="site-header">
-        <div class="doro-mascot" aria-hidden="true">₍ᐢ.ˬ.ᐢ₎</div>
-        <h1>Doro日报</h1>
-        <p class="tagline">哼哼～Doro 帮你筛的新闻，趁热看！</p>
+        <div class="header-inner">
+            <a class="brand" href="../index.html" aria-label="Doro日报首页">
+                <img class="brand-sprites" src="../assets/doro-sprites.png" alt="" aria-hidden="true">
+                <span class="brand-copy">
+                    <strong>Doro日报</strong>
+                    <small>DORO // DAILY INTELLIGENCE</small>
+                </span>
+            </a>
+            <nav class="header-actions" aria-label="页头导航">
+                <span class="doro-signal"><i></i>Doro 已上线</span>
+                <a href="#archive">往期存档</a>
+            </nav>
+        </div>
     </header>
 
     <div class="post-layout">
-        <aside class="toc-sidebar">
+        <aside class="toc-sidebar" aria-label="今日速览">
             <div class="toc-sticky">
-                <div class="toc-title">📋 今日速览</div>
+                <div class="toc-kicker">TODAY'S QUEUE</div>
+                <div class="toc-title">今日速览</div>
                 <ul class="toc-list"><li class="toc-item"><a href="#sec-1">🔥 热点新闻 · 36氪</a></li><li class="toc-item"><a href="#sec-2">🔥 热点新闻 · 雷锋网</a></li><li class="toc-item"><a href="#sec-3">🤖 AI 资讯 · 量子位</a></li><li class="toc-item"><a href="#sec-4">🌍 国际 AI · TechCrunch</a></li><li class="toc-item"><a href="#sec-5">🌍 国际 AI · The Verge</a></li><li class="toc-item"><a href="#sec-6">🌍 国际 AI · VentureBeat</a></li><li class="toc-item"><a href="#sec-7">🌍 国际 AI · AI News</a></li><li class="toc-item"><a href="#sec-8">📱 数码硬件 · IT之家</a></li><li class="toc-item"><a href="#sec-9">📱 数码硬件 · 爱范儿</a></li><li class="toc-item"><a href="#sec-10">🎮 游戏 · 游研社</a></li><li class="toc-item"><a href="#sec-11">🎮 游戏 · 机核网</a></li><li class="toc-item"><a href="#sec-12">💡 科技 · 少数派</a></li></ul>
+                <div class="toc-note">
+                    <span>盯——</span>
+                    Doro 已经替主人翻过一遍了。
+                </div>
             </div>
         </aside>
 
-        <main class="container post-body">
-            <div class="hero-date">
-                <div class="hero-badge">🗞️ 周五特供</div>
-                <h2>Doro日报 <span class="date-num">2026-07-17</span></h2>
-                <p class="sub">12 个信源 · 新鲜出炉 · 趁热阅读</p>
+        <main class="container post-body" id="main-content">
+            <section class="hero-date" aria-labelledby="daily-title">
+                <div class="hero-content">
+                    <div class="hero-eyebrow"><span>周五</span> MORNING BRIEF</div>
+                    <h1 id="daily-title">Doro日报</h1>
+                    <p class="hero-date-number">2026-07-17</p>
+                    <p class="sub"><b>12</b> 个信源 · 已筛选 · 适合趁热阅读</p>
+                    <p class="hero-whisper">“新闻很多。Doro 只把值得盯的留下来。”</p>
+                </div>
+            </section>
+
+            <div class="content-intro">
+                <span>01</span>
+                <p>今日情报已按信源整理。标题负责告诉你发生了什么，摘要负责判断值不值得点开。</p>
             </div>
-            <div class="section-card" id="sec-1">
+
+            <section class="section-card" id="sec-1">
 <div class="section-title">🔥 热点新闻 · 36氪</div>
-<div class="item">
+<article class="item">
+<div class="item-header"><a href="https://36kr.com/p/3898476192941697?f=rss" target="_blank">震业新材完成超亿元A轮融资，招商致远、玉柴股份、海富产业基金领投｜36氪首发</a></div>
+<div class="item-desc">36氪获悉，ADI金属材料企业震业新材近期完成超亿元A轮融资。</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://36kr.com/p/3899128277452681?f=rss" target="_blank">36氪首发 | 港科大博士创业做机器人全身触觉系统，红杉、瓴智、智元共同押注</a></div>
+<div class="item-desc">作者 | 乔钰杰 编辑 | 袁斯来 硬氪获悉，全身多模态融合触觉解决方案公司模感科技（MoSense）近日完成数千万元天使轮融资，投资方包括红杉中国、高瓴创投及智元机器人。</div>
+</article>
+<article class="item">
 <div class="item-header"><a href="https://36kr.com/p/3899081603483525?f=rss" target="_blank">36氪首发 | 前蔚来、华为智驾核心成员联手创业具身世界模型，三个月内完成数亿元融资</a></div>
 <div class="item-desc">作者 | 乔钰杰 编辑 | 袁斯来 硬氪获悉，具身智能世界模型公司日冕开物（北京日冕机器人有限公司）近期完成连续两轮种子轮融资，融资合计金额达数亿元人民币，由鼎峰科创、远图未来、百度风投、沃衍资本、武…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://36kr.com/p/3899057634363266?f=rss" target="_blank">36氪首发 | 这家人形机器人ODM厂商获千万融资，飞荣达、索辰科技接连下注</a></div>
 <div class="item-desc">图源/企业 本文约 2400 字，建议阅读 6 分钟 作者丨欧雪 编辑丨袁斯来 硬氪获悉，人形机器人ODM方案商半醒具身（BXI Robotics）于近期完成千万元级新一轮融资，投资方为A股上市公司索…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://36kr.com/p/3899040301876868?f=rss" target="_blank">自研氢能催化剂关键材料，稳定性提升50%，「铂氢科技」完成数千万元Pre-A轮融资 | 36氪首发</a></div>
 <div class="item-desc">36氪获悉，苏州铂氢科技源科技有限公司（以下简称「铂氢科技」）宣布完成数千万元Pre-A轮融资。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://36kr.com/p/3898662052693894?f=rss" target="_blank">独家 | 智谱 ARR 达到10 亿美元，半年增长 15 倍</a></div>
 <div class="item-desc">文 | 周鑫雨 编辑 | 张雨忻 智能涌现从多个独立信源处获悉， 截至 2026 年 7 月， 智谱的 ARR（年度经常性收入）已经达到 10 亿美元 。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://36kr.com/p/3898973942007684?f=rss" target="_blank">8点1氪丨长鑫科技网上发行初步中签率为0.40995452%；特朗普头像将被印上硬币，面值1美元；多家NFC鲜榨果汁生产车间被曝无水果</a></div>
 <div class="item-desc">今日热点导览 SpaceX市值蒸发近8500亿美元 韩国将暂停新的单一股票杠杆ETF上市，以抑制市场波动 泡泡玛特创始人王宁带队探访苹果总部 亚马逊Leo与南非企业达成协议，预计明年启动卫星互联网服务…</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://36kr.com/p/3898370289846153?f=rss" target="_blank">商汤001号员工创办AI公司：将AI角色引擎做成护城河，获种子轮融资 | 36氪首发</a></div>
-<div class="item-desc">文丨刘士武 36氪游戏获悉， AI 角色硬件公司酷奇奇科技（Coolqq.com）已完成 数千万元种子轮融资，本轮融资由上海浦东人工智能种子基金领投，商汤科技、零以创投跟投。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://36kr.com/p/3896564308379525?f=rss" target="_blank">氪星晚报｜IDC：百度智能云蝉联中国金融大模型市场份额第一；腾讯云与RoboScience机器科学达成战略合作；商务部回应推动解决安世半导体问题进展</a></div>
-<div class="item-desc">大公司： OPPO：realme新品将聚焦海外市场，中国市场暂停产品更新 36氪从OPPO方面获悉，为了进一步整合集团资源，实现全球产品战略的协同，未来 realme 新品将聚焦海外市场，在中国市场暂…</div>
-</div>
-</div>
-<div class="section-card" id="sec-2">
+</article>
+</section>
+<section class="section-card" id="sec-2">
 <div class="section-title">🔥 热点新闻 · 雷锋网</div>
-<div class="item">
+<article class="item">
+<div class="item-header"><a href="https://www.leiphone.com/category/weiwu/FjYVgX5VSuvkTEib.html" target="_blank">Moonix AI 眼镜标准版 7 月 17 日全球同步发售，主打 14.9 克轻量化设计</a></div>
+<div class="item-desc">2026 年 7 月 17日 讯 —— 新锐 AI 穿戴硬件品牌 Moonix（莫奈）正式宣布，旗下首款产品 Moonix AI 眼镜标准版将于今天全球同步发售。</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.leiphone.com/category/chips/Y7ghB3uOJbHaNTyi.html" target="_blank">不追制程、不靠HBM、不复制GPU，东方算芯首颗AI芯片有哪些新招数</a></div>
+<div class="item-desc">AI算力仍在狂奔，但芯片的竞争维度却发生明显的分化。</div>
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.leiphone.com/category/transportation/lV4IbRbkPa4Urphm.html" target="_blank">挚达科技发布家庭及公共场景自动充电机器人解决方案</a></div>
 <div class="item-desc">雷峰网获悉，挚达科技发布“AI能源+机器人”家庭及公共场景解决方案，以自动充电机器人为核心，结合光伏、储能、充电设备及AI平台，实现能源管理、任务调度和自动充电，面向家庭住宅及Robotaxi、物流车…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.leiphone.com/category/chips/lxIbicm9WU6RU1Qe.html" target="_blank">国产大芯片厂商“必修课”：从云豹智能看DPU赛道现实考题</a></div>
 <div class="item-desc">国内DPU厂商云豹智能6月30日向深交所递交创业板IPO材料，成为创业板第四套上市标准下首家申报的DPU芯片企业，被市场视作“国产DPU第一股”。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.leiphone.com/category/private/XjLhqoCs0fFsyEIN.html" target="_blank">专访 Ψ₀ 团队：用对方法，30小时真机数据也能练模型｜RSS 2026</a></div>
 <div class="item-desc">机器人Scaling，不一定先拼数据量 作者丨 邓哲敏 编辑丨 齐铖湧 2026 年 7 月 13 日，RSS 2026 于悉尼正式开幕。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.leiphone.com/category/industrynews/lxXkqwf4vc9J3opM.html" target="_blank">2026世界人工智能大会聚焦AI治理，奇安信展示AI+安全双轮驱动布局</a></div>
 <div class="item-desc">7月17日至20日，2026世界人工智能大会（WAIC 2026）暨人工智能全球治理高级别会议将在上海开幕。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.leiphone.com/category/industrynews/REYfC0ECzRMeS8hD.html" target="_blank">行业首个！中国一汽大模型入驻阿里云百炼，面向全行业开放</a></div>
 <div class="item-desc">7月15日，中国第一汽车集团有限公司（以下简称“中国一汽”）与阿里云智能集团联合宣布：由中国一汽基于千问自主研发的行业大模型已正式入驻阿里云百炼平台，面向全行业开放。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.leiphone.com/category/industrynews/tA7cOaKzZYIzZTd1.html" target="_blank">不改造门店机器人直接上岗，蚂蚁灵波智慧药房获WAIC 2026“镇馆之宝”</a></div>
-<div class="item-desc">2026世界人工智能大会（WAIC）将于7 月 17 日正式拉开帷幕。</div>
-</div>
-</div>
-<div class="section-card" id="sec-3">
+</article>
+</section>
+<section class="section-card" id="sec-3">
 <div class="section-title">🤖 AI 资讯 · 量子位</div>
-<div class="item">
+<article class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/452611.html" target="_blank">OpenAI官方教你8招玩透ChatGPT！</a></div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.qbitai.com/2026/07/451691.html" target="_blank">百度搭子获评WAIC 2026“镇馆之宝”，智能体全家桶将集中亮相</a></div>
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.qbitai.com/2026/07/451576.html" target="_blank">理想L6换代24.98万开卖！L9同款自研芯片中控屏下放，一个版本配置拉满不涨价</a></div>
 <div class="item-desc">最快下周一提车</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.qbitai.com/2026/07/451403.html" target="_blank">全球首个！银河通用新框架仅需人类视频即可部署，特斯拉蚌埠住了</a></div>
 <div class="item-desc">还能让机器人边干边学</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.qbitai.com/2026/07/451371.html" target="_blank">工业母机进入“计算化时刻”：中国移动投资友机技术，押注工业AI下一代基础设施</a></div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.qbitai.com/2026/07/451379.html" target="_blank">RLinf v0.3来了！从模型生态到真机部署五大能力跃升，无问芯穹与清华大学联合打造</a></div>
 <div class="item-desc">为破解具身智能行业发展瓶颈构建了新一代“进化底座”</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.qbitai.com/2026/07/451327.html" target="_blank">手握英伟达宁德时代相同剧本，具身智能的第一个「基建商」出现了</a></div>
 <div class="item-desc">Robotaxi第一股文远知行孵化</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.qbitai.com/2026/07/451084.html" target="_blank">刚刚，逐际动力放出一段Demo，Figure：睡不着啊</a></div>
 <div class="item-desc">不要赌某个模型能通吃一切。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.qbitai.com/2026/07/451049.html" target="_blank">一位失忆患者，揭开了AI记忆的误区</a></div>
-<div class="item-desc">记忆能够独立成层</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.qbitai.com/2026/07/450921.html" target="_blank">一句「哈哈」引发的苹果OpenAI窃密大战</a></div>
-<div class="item-desc">苹果怒斥：烂到骨子里</div>
-</div>
-</div>
-<div class="section-card" id="sec-4">
+</article>
+</section>
+<section class="section-card" id="sec-4">
 <div class="section-title">🌍 国际 AI · TechCrunch</div>
-<div class="item">
+<article class="item">
 <div class="item-header"><a href="https://techcrunch.com/2026/07/16/coca-cola-suspended-production-at-its-fairlife-dairy-after-a-ransomware-attack/" target="_blank">Coca-Cola suspended production at its Fairlife dairy after a ransomware attack</a></div>
 <div class="item-desc">Coca Cola said dairy production at its Fairlife unit will "remain suspended" in the United States fo…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://techcrunch.com/2026/07/16/founders-fund-hires-former-openai-exec-ryan-beiermeister-and-not-because-of-her-mafia-skills/" target="_blank">Founders Fund hires former OpenAI exec Ryan Beiermeister (and not because of her ‘Mafia’ skills)</a></div>
 <div class="item-desc">Ryan Beiermeister, who demonstrated cool analysis in the Founders Fund YouTube series "Mafia," has j…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://techcrunch.com/2026/07/16/google-vids-now-lets-you-star-in-your-own-ai-videos/" target="_blank">Google Vids now lets you star in your own AI videos</a></div>
 <div class="item-desc">Google is adding personalized AI avatars to Vids that let users create videos starring a digital ver…</div>
-</div>
-</div>
-<div class="section-card" id="sec-5">
+</article>
+</section>
+<section class="section-card" id="sec-5">
 <div class="section-title">🌍 国际 AI · The Verge</div>
 <p class="item-desc">暂无更新或抓取异常。</p>
-</div>
-<div class="section-card" id="sec-6">
+</section>
+<section class="section-card" id="sec-6">
 <div class="section-title">🌍 国际 AI · VentureBeat</div>
-<div class="item">
+<article class="item">
 <div class="item-header"><a href="https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems" target="_blank">Chinaâs Moonshot AI releases Kimi K3, the largest open-source model ever, rivaling top U.S. systems</a></div>
 <div class="item-desc">Moonshot AI, the Beijing-based artificial intelligence startup backed by Alibaba, on Thursday releas…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://venturebeat.com/ai/the-ai-compute-gap-enterprises-are-buying-infrastructure-faster-than-they-can-measure-what-it-costs" target="_blank">The AI compute gap: Enterprises are buying infrastructure faster than they can measure what it costs</a></div>
 <div class="item-desc">Across 107 enterprises, AI infrastructure spending is accelerating well ahead of the ability to see …</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://venturebeat.com/ai/the-agent-security-gap-54-of-enterprises-have-already-had-an-ai-agent-incident-and-most-still-let-agents-share-credentials" target="_blank">The agent security gap: 54% of enterprises have already had an AI agent incident, and most still let agents share credentials</a></div>
 <div class="item-desc">Across 107 enterprises, AI agents are being given real access to systems and data while the controls…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://venturebeat.com/security/zero-trust-must-now-move-at-agent-speed" target="_blank">Zero trust must now move at agent speed</a></div>
 <div class="item-desc">Presented by Ping Identity Enterprises need to treat zero trust security architecture as an immediat…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://venturebeat.com/ai/the-ai-context-gap-enterprise-ai-organizations-have-a-trust-problem-not-a-retrieval-problem-and-most-are-still-building-the-fix" target="_blank">The AI context gap: Enterprise AI organizations have a trust problem, not a retrieval problem â and most are still building the fix</a></div>
 <div class="item-desc">Across 101 enterprises, the infrastructure that feeds AI agents their business context is being buil…</div>
-</div>
-</div>
-<div class="section-card" id="sec-7">
+</article>
+</section>
+<section class="section-card" id="sec-7">
 <div class="section-title">🌍 国际 AI · AI News</div>
-<div class="item">
+<article class="item">
 <div class="item-header"><a href="https://www.artificialintelligence-news.com/news/examining-google-deepmind-ai-bioresilience-push/" target="_blank">Examining Google DeepMind’s AI bioresilience push</a></div>
 <div class="item-desc">Google DeepMind and Isomorphic Labs outlined a bioresilience program to curb AI misuse in biology wh…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.artificialintelligence-news.com/news/neko-health-700m-ai-body-scans-us/" target="_blank">Neko Health raises $700 million to expand AI body scans in the US</a></div>
 <div class="item-desc">Neko Health has raised $700 million to expand its AI body scans in the United States, starting with …</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.artificialintelligence-news.com/news/nokia-ai-ran-platform-nvidia/" target="_blank">Nokia’s AI-RAN platform: a radio comeback that runs on NVIDIA</a></div>
 <div class="item-desc">Nokia’s AI-RAN platform arrived on July 15 with a claim worth examining: that it is the industry’s f…</div>
-</div>
-</div>
-<div class="section-card" id="sec-8">
+</article>
+</section>
+<section class="section-card" id="sec-8">
 <div class="section-title">📱 数码硬件 · IT之家</div>
-<div class="item">
-<div class="item-header"><a href="https://www.ithome.com/0/977/950.htm" target="_blank">三星承认 Galaxy S26 Ultra 手机屏幕局部发红问题：非硬件故障，已发补丁修复</a></div>
-<div class="item-desc">IT之家 7 月 17 日消息，科技媒体 Android Authority 昨日（7 月 16 日）发布博文，报道称针对 Galaxy S26 Ultra 旗舰手机屏幕局部发红问题，三星官方已推送软…</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.ithome.com/0/977/949.htm" target="_blank">119 元：九州风神办公机箱 CC310 开售，支持 MATX、ITX 主板</a></div>
-<div class="item-desc">IT之家 7 月 17 日消息，九州风神 CC310 办公机箱现已在京东开售，新品设计低调，主打商务场景， 兼容 AMD AM4/AM5、英特尔 LGA 1700/1851 等平台 。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.ithome.com/0/977/947.htm" target="_blank">三菱电机寻求 2026 年 9 月前就功率半导体业务合并与东芝、罗姆达成协议</a></div>
-<div class="item-desc">IT之家 7 月 17 日消息，三菱电机执行总裁漆间启在接受彭博社采访时表示， 目标在 2026 年 9 月前就三方功率半导体业务合并事宜与东芝、罗姆达成协议 。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.ithome.com/0/977/946.htm" target="_blank">金山办公 CEO 章庆元：订阅与 Token 计费长期并存，AI 办公商业模式将更灵活</a></div>
-<div class="item-desc">IT之家 7 月 17 日消息，7 月 15 日，金山办公“2026 AI 生产力大会”在上海举办，两款覆盖个人与组织场景的 AI 办公智能体在会上同步发布。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.ithome.com/0/977/943.htm" target="_blank">比亚迪官宣“科技豪华智能轿车”腾势 Z9S 全新配色：晨曦紫</a></div>
-<div class="item-desc">IT之家 7 月 17 日消息，今天上午，比亚迪宣布腾势家族再添“新成员”—— 科技豪华智能轿车 腾势 Z9S 。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.ithome.com/0/977/938.htm" target="_blank">谷歌安卓 17 新特性：任务栏末尾调整显示为用户最近打开的应用</a></div>
-<div class="item-desc">IT之家 7 月 17 日消息，谷歌安卓社区互动负责人米沙尔 · 拉赫曼（Mishaal Rahman）昨日（7 月 16 日）在 X 平台发布推文，指出在安卓 17 QPR1 Beta 更新中， 调…</div>
-</div>
-</div>
-<div class="section-card" id="sec-9">
+<article class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/978/053.htm" target="_blank">东风奕派 M8 车型 7 月 23 日正式上市，搭载华为乾崑智驾 ADS 5 Pro</a></div>
+<div class="item-desc">IT之家 7 月 17 日消息，东风奕派今日宣布，旗下全新中大型大六座 SUV—— 奕派 M8 将于 7 月 23 日正式上市。</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/978/050.htm" target="_blank">比亚迪大唐盛世版车型下线，官方指导价 30.99 万元</a></div>
+<div class="item-desc">IT之家 7 月 17 日消息，比亚迪王朝网销售事业部总经理路天今日宣布， 大唐盛世版顺利下线 ，全速发运全国，静待各地交付。</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/978/049.htm" target="_blank">影石联合公安机关成功破获一起重大假冒品牌内存卡产销案，多名涉案人员落网</a></div>
+<div class="item-desc">IT之家 7 月 17 日消息，影石法务部今天（17 日）下午发文：近期，影石联合公安机关成功破获一起 重大假冒品牌内存卡产销案件 。</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/978/048.htm" target="_blank">索尼 PS Studio 联合失眠组打造：《瑞奇与叮当: 游侠大乱斗》手游即将发布，包含大逃杀模式</a></div>
+<div class="item-desc">IT之家 7 月 17 日消息，索尼官方前天在 PlayStation Blog 平台宣布，《瑞奇与叮当：游侠乱斗》手游已在 App Store 和 Google Play 商店开启预约，发布时间即将…</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/978/047.htm" target="_blank">零跑 A05s 内饰首次公布：桃桃粉双拼色，环保仿麂皮材质包覆</a></div>
+<div class="item-desc">IT之家 7 月 17 日消息，零跑 A05s 内饰今日首次公布，新车采用桃桃粉双拼色内饰，环保仿麂皮材质包覆，带来细腻柔软触感。</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.ithome.com/0/978/046.htm" target="_blank">苹果 iPhone 18 Pro Max 影像规格再曝：可变光圈，主摄索尼 IMX905 传感器</a></div>
+<div class="item-desc">IT之家 7 月 17 日消息，科技媒体 NotebookCheck 今天（7 月 17 日）发布博文，披露了一份内部诊断日志文件， 再次透露苹果 iPhone 18 Pro Max 的影像规格。</div>
+</article>
+</section>
+<section class="section-card" id="sec-9">
 <div class="section-title">📱 数码硬件 · 爱范儿</div>
-<div class="item">
+<article class="item">
 <div class="item-header"><a href="https://www.ifanr.com/1672232?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">连夜实测 Kimi K3，建议改名 Kable</a></div>
 <div class="item-desc">开源模型的 K3 时刻 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.ifanr.com/1672229?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">早报｜真我暂停产品更新/华为撤回「世界」商标申请/努比亚全球首款AI智能体手机搭载豆包手机助手</a></div>
 <div class="item-desc">· NotebookLM 更名为 Gemini Notebook · 被曝上传完整仓库后，Grok Build 宣布开源 · 智己回应多地经销商经营异常：将为购车用户兜底 #欢迎关注爱范儿官方微信公众…</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.ifanr.com/1672196?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">24.98 万元，新一代理想 L6 上市：51kWh 大电池、旗舰芯片下放，开始补操控这一课</a></div>
 <div class="item-desc">六边形战士回来了。 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.ifanr.com/1672096?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">实测灵犀专业版，AI 成为下一代办公入口</a></div>
 <div class="item-desc">办公 AI，能真交付才算数 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.ifanr.com/1672143?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">9.58 万和 9.98 万起，零跑发布 B01 轿车和 B10 SUV，把 800V 平台和双零重力座椅价格打下来了</a></div>
 <div class="item-desc">10 万元级别的大满配。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.ifanr.com/1672135?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank">百公里 8.2 度电，吉利发布雷霆 16 合 1 智能电驱，银河 TT 首发搭载</a></div>
 <div class="item-desc">电驱也要 AI 化。 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</div>
-</div>
-</div>
-<div class="section-card" id="sec-10">
+</article>
+</section>
+<section class="section-card" id="sec-10">
 <div class="section-title">🎮 游戏 · 游研社</div>
-<div class="item">
+<article class="item">
 <div class="item-header"><a href="https://www.yystv.cn/p/14159" target="_blank">《梦幻模拟战》全新一代作品！新王道幻想战略RPG《梦战：剑之海》全球首曝，预约正式开启</a></div>
 <div class="item-desc">今日，紫龙游戏旗下王牌工作室BlackJack Studio原班人马打造的《梦幻模拟战》全新一代作品——《梦战：剑之海》正式公开首支概念预告片，并宣布全球多平台（含移动端、PC端）预约现已开启。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.yystv.cn/p/14163" target="_blank">黑旗重制一天卖200万套，育碧最需要补的课不再是“怎么做游戏”</a></div>
 <div class="item-desc">在游戏内容之外，也不要让玩家们灰心 直到发售前三天，《刺客信条 黑旗 记忆重置》（以下简称黑旗重制）所面对的舆论还可以说是一片大好。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.yystv.cn/p/14164" target="_blank">《空之轨迹the 2nd》上线前，Falcom社长谈如何兼顾还原与创新</a></div>
-<div class="item-desc">去年9月发售的《空之轨迹 the 1st》，无疑是2025年最受瞩目的JRPG重制作品之一。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.yystv.cn/p/14160" target="_blank">LOL“怀旧服”上线前，我们和拳头聊了聊过去的《英雄联盟》是怎么回归的</a></div>
 <div class="item-desc">在前天刚刚结束的2026英雄联盟季中冠军赛上，历经一场足够胶着的决赛， HLE以3:2击败BLG，拿下了今年的MSI冠军。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.yystv.cn/p/14164" target="_blank">《空之轨迹the 2nd》上线前，Falcom社长谈如何兼顾还原与创新</a></div>
+<div class="item-desc">去年9月发售的《空之轨迹 the 1st》，无疑是2025年最受瞩目的JRPG重制作品之一。</div>
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.yystv.cn/p/14161" target="_blank">《黑神话：悟空》把音乐会开到美国，何尝不是另一种“西游”</a></div>
 <div class="item-desc">今年5月30日，《黑神话：悟空》音乐会开始了它的全球巡演。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.yystv.cn/p/14162" target="_blank">一款双人游戏，把“追番昭和动画”做成了通关目标</a></div>
 <div class="item-desc">用一款游戏看动画。 《轨道双子星》最初在2025年的TGA上亮相时，就以其赛璐璐风格的美术与双人合作闯关的组合，立刻吸引了众多玩家的关注。 从一开始，玩家们就默认它会是一款充满“昭和动画味道”的游戏。…</div>
-</div>
-</div>
-<div class="section-card" id="sec-11">
+</article>
+</section>
+<section class="section-card" id="sec-11">
 <div class="section-title">🎮 游戏 · 机核网</div>
-<div class="item">
+<article class="item">
+<div class="item-header"><a href="https://www.gcores.com/articles/217180" target="_blank">游戏市集+专业路演，暴造线下活动报名开启</a></div>
+<div class="item-desc">伙伴们，大家好！今年的 「摊开玩」 独立游戏市集 的摊位申请 已经开始啦~ 8 月 15 - 16 日（周六日） ，我们依然在 北京市朝阳区东进国际中心 B1 层下沉广场，以更大的市集场地面积、更多的…</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.gcores.com/articles/217248" target="_blank">《仁王3》官方实体典藏版实拍公布！早鸟预售倒计时最后48小时</a></div>
+<div class="item-desc">《仁王3》官方实体典藏版实拍公布! 早鸟预售倒计时最后48小时，立即下单获赠【草薙挂饰】DLC特典！</div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.gcores.com/radios/217253" target="_blank">Vol.080 《宝可梦》丨在怒喷和继续买之间寻找GF的烈焰马</a></div>
+<div class="item-desc">【进听友群+v Recallmikey】 本期主播 游戏开始丨Even 木有话讲 丨木匠 游戏开始×木有话讲——联动篇堂堂来袭！ 《宝可梦》系列作为一个持续运营30年经久不衰的全球性ip，其业务范围早…</div>
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.gcores.com/articles/217246" target="_blank">《使命召唤：现代战争4》首次公开全新多人模式“演习场”最新消息</a></div>
 <div class="item-desc">经典射击游戏《使命召唤》系列最新力作《现代战争4》将于10月23日（周五）正式全球发售。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.gcores.com/articles/216975" target="_blank">从协力到翻脸只需一秒：《全民丢丢乐！普林尼双六大冒险》试玩+采访小记</a></div>
+</article>
+<article class="item">
+<div class="item-header"><a href="https://www.gcores.com/articles/216975" target="_blank">从协作到翻脸只需一秒：《全民丢丢乐！普林尼双六大冒险》试玩+采访小记</a></div>
 <div class="item-desc">《魔界战记》自2003年1月30日在PS2上首发以来，已走过二十余个年头。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://www.gcores.com/articles/216970" target="_blank">表面的温柔，潜藏着不安的暗流：《静谧田园》试玩+采访小记</a></div>
 <div class="item-desc">作为《夜廻》系列开发团队的全新尝试，《静谧田园》从公布之初就带着某种微妙的矛盾感——由擅长营造恐怖氛围的团队来做一款田园生活模拟游戏，这本身其实就足够让人感到好奇。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.gcores.com/articles/217240" target="_blank">《王之凝视》将于7月29日登陆各大主机平台</a></div>
-<div class="item-desc">游戏发行商 tinyBuild 宣布，《王之凝视》将于7月29日登陆各大主机平台。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.gcores.com/articles/217236" target="_blank">反向跳票：《风火轮 无限冲刺》定于9月10日发售</a></div>
-<div class="item-desc">由 Milestone 打造、原定于9月24日发售的竞速游戏《风火轮 无限冲刺》宣布“反向跳票”，定于9月10日发售。</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://www.gcores.com/articles/217238" target="_blank">《守望先锋》角斗领域不再加入新英雄和新地图</a></div>
-<div class="item-desc">《守望先锋》运营团队宣布，角斗领域模式今后将不再加入新英雄与新地图，仅保留赛季平衡性更新、排位级别重置及奖励。</div>
-</div>
-</div>
-<div class="section-card" id="sec-12">
+</article>
+</section>
+<section class="section-card" id="sec-12">
 <div class="section-title">💡 科技 · 少数派</div>
-<div class="item">
+<article class="item">
+<div class="item-header"><a href="https://sspai.com/post/111128" target="_blank">UniGetUI：可能是 Windows 下最好用的应用商店</a></div>
+<div class="item-desc">UniGetUI 是一个不错的包管理器，它提供的统一的更新 UI，让你的软件最大程度集中在一起管理，还可以用于需要批量配置的场景。</div>
+</article>
+<article class="item">
 <div class="item-header"><a href="https://sspai.com/post/112414" target="_blank">派早报：OPPO 宣布调整旗下子品牌的全球产品策略等</a></div>
 <div class="item-desc">月之暗面发布 Kimi K3 模型，支付宝升级 Apple 教育优惠认证等。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://sspai.com/post/112400" target="_blank">新玩意 246｜少数派的编辑们最近买了啥？</a></div>
 <div class="item-desc">编注：很多读者都会好奇少数派的编辑们到底平时都「买了啥」。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://sspai.com/post/112386" target="_blank">Apple 高校优惠活动开始了，今年有些不一样</a></div>
 <div class="item-desc">又到了一年一度的Apple高校优惠活动季，高校师生们可以在活动期间，购买指定型号iPad或Mac设备，获得指定配件产品，享受到限时的教育优惠+买赠活动。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://sspai.com/post/112375" target="_blank">具透 | macOS 27 首个公开测试版来了，这些是值得你关注的新特性</a></div>
 <div class="item-desc">全面 ARM 化后的第一个 macOS 版本，Golden Gate 27 还有这些变化。</div>
-</div>
-<div class="item">
+</article>
+<article class="item">
 <div class="item-header"><a href="https://sspai.com/post/111086" target="_blank">翻译「世界杯」的赛事名称，为什么中文比日文更简洁？</a></div>
 <div class="item-desc">国名也好、赛事名称也好，日语走上了片假名这条路——那为什么日本人不能像中文一样，直接造出「美加墨W杯」这样的简称？</div>
-</div>
-<div class="item">
-<div class="item-header"><a href="https://sspai.com/post/112373" target="_blank">派早报：国行版 Apple Intelligence 完成备案等</a></div>
-<div class="item-desc">阿里发布实时语音模型 Qwen-Audio-3.0-Realtime、腾龙发布 12-20mm F2.8 镜头等。</div>
-</div>
-</div>
+</article>
+</section>
 
-            <!-- 本期 AI 周报 -->
             <div class="current-weekly">🔥 <a href="https://salmonc.github.io/daily-news/posts/github-weekly-07.13-07.17.html" target="_blank">本期 AI 周报（07.13-07.17）→</a></div>
 
-            <!-- 往期存档 -->
-            <div class="archive-section">
+            <section class="archive-section" id="archive" aria-labelledby="archive-title">
+                <div class="archive-heading">
+                    <div>
+                        <span class="archive-kicker">DORO'S MEMORY</span>
+                        <h2 id="archive-title">往期存档</h2>
+                    </div>
+                    <p>过去发生的事，Doro 也没有忘。</p>
+                </div>
+
                 <details class="archive-details">
-                    <summary>📚 往期日报 <span class="archive-count">(56期)</span></summary>
+                    <summary>往期日报 <span class="archive-count">56 期</span></summary>
                     <div class="archive-paginated" id="daily-archive" data-page="0" data-page-size="10">
                         <div class="archive-item"><a href="../posts/2026-07-10.html">2026-07-10<span class="archive-wd">周五</span></a></div>
 <div class="archive-item"><a href="../posts/2026-07-09.html">2026-07-09<span class="archive-wd">周四</span></a></div>
@@ -477,11 +416,11 @@
 <div class="archive-item"><a href="../posts/2026-04-17.html">2026-04-17<span class="archive-wd">周五</span></a></div>
 <div class="archive-item"><a href="../posts/2026-04-16.html">2026-04-16<span class="archive-wd">周四</span></a></div>
                     </div>
-                    <button class="load-more-btn hidden" id="daily-more" onclick="loadMore('daily-archive')">加载更多...</button>
+                    <button class="load-more-btn hidden" id="daily-archive-more" type="button" data-load-more="daily-archive">再放出一些</button>
                 </details>
 
                 <details class="archive-details">
-                    <summary>🔥 往期 AI 周报 <span class="archive-count">(7期)</span></summary>
+                    <summary>AI 周报 <span class="archive-count">7 期</span></summary>
                     <div class="archive-paginated" id="weekly-archive" data-page="0" data-page-size="10">
                         <div class="archive-item"><a href="../posts/github-weekly-07.13-07.17.html">07.13-07.17</a></div>
 <div class="archive-item"><a href="../posts/github-weekly-07.06-07.10.html">07.06-07.10</a></div>
@@ -491,47 +430,23 @@
 <div class="archive-item"><a href="../posts/github-weekly-05.18-05.22.html">05.18-05.22</a></div>
 <div class="archive-item"><a href="../posts/github-weekly-04.20-04.24.html">04.20-04.24</a></div>
                     </div>
-                    <button class="load-more-btn hidden" id="weekly-more" onclick="loadMore('weekly-archive')">加载更多...</button>
+                    <button class="load-more-btn hidden" id="weekly-archive-more" type="button" data-load-more="weekly-archive">再放出一些</button>
                 </details>
-            </div>
+            </section>
 
             <footer class="site-footer">
-                <div class="footer-doro" aria-hidden="true">( ´ ▽ ` )ﾉ</div>
-                <p>Doro日报由 Hermes 自动生成 · <a href="https://github.com/salmonc/daily-news" target="_blank">GitHub</a> · <a href="../index.html">返回首页</a></p>
+                <img src="../assets/doro-sprites.png" alt="三只像素 Doro 正在值班">
+                <p><strong>Doro日报</strong>由 Hermes 自动生成</p>
+                <div class="footer-links">
+                    <a href="https://github.com/salmonc/daily-news" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="../index.html">返回首页</a>
+                </div>
+                <small>可爱归可爱，来源还是要自己点开确认。哼哼。</small>
             </footer>
         </main>
     </div>
 
-    <script>
-    (function() {
-        function initPagination(container) {
-            var items = container.querySelectorAll('.archive-item');
-            var pageSize = parseInt(container.dataset.pageSize) || 10;
-            var moreBtn = document.getElementById(container.id + '-more');
-            if (!moreBtn) return;
-            if (items.length <= pageSize) { moreBtn.classList.add('hidden'); return; }
-            items.forEach(function(item, i) { if (i >= pageSize) item.style.display = 'none'; });
-            moreBtn.classList.remove('hidden');
-        }
-        window.loadMore = function(containerId) {
-            var container = document.getElementById(containerId);
-            var items = container.querySelectorAll('.archive-item');
-            var pageSize = parseInt(container.dataset.pageSize) || 10;
-            var currentPage = parseInt(container.dataset.page) || 0;
-            var nextPage = currentPage + 1;
-            var startIdx = nextPage * pageSize;
-            var endIdx = startIdx + pageSize;
-            items.forEach(function(item, i) { if (i >= startIdx && i < endIdx) item.style.display = ''; });
-            container.dataset.page = nextPage;
-            if (endIdx >= items.length) {
-                var moreBtn = document.getElementById(containerId + '-more');
-                if (moreBtn) moreBtn.classList.add('hidden');
-            }
-        };
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.archive-paginated').forEach(initPagination);
-        });
-    })();
-    </script>
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">↑</button>
+    <script src="../assets/main.js?v=20260717-doro"></script>
 </body>
 </html>
