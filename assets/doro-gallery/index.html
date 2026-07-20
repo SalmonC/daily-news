@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doro 图库审阅</title>
+  <style>
+    :root { color-scheme: light; --paper:#fff9fb; --card:#fff; --ink:#493942; --muted:#8d7682; --line:#ead7df; --pink:#df7da5; }
+    * { box-sizing: border-box; }
+    body { margin:0; padding:48px 24px 72px; background:var(--paper); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif; }
+    main { width:min(960px,100%); margin:auto; }
+    h1 { margin:0 0 8px; font-family:"Songti SC",serif; font-size:clamp(2rem,5vw,3.5rem); }
+    .intro { margin:0 0 32px; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+    article { overflow:hidden; border:1px solid var(--line); border-radius:20px; background:var(--card); box-shadow:0 10px 35px rgba(94,53,72,.08); }
+    article img { display:block; width:100%; aspect-ratio:300/220; object-fit:contain; background:#fceff3; }
+    article div { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:15px 17px 17px; }
+    h2 { margin:0; font-size:1rem; }
+    code { color:var(--muted); font-size:.72rem; }
+    footer { margin-top:28px; color:var(--muted); font-size:.82rem; }
+    a { color:var(--pink); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Doro 图库</h1>
+    <p class="intro">以下 11 个动画已启用，Hermes 每次生成日报时随机选择一个。</p>
+    <section class="grid">
+      <article><img src="idle.gif" alt="待机 Doro"><div><h2>待机</h2><code>idle.gif</code></div></article>
+      <article><img src="stroll.gif" alt="散步 Doro"><div><h2>散步</h2><code>stroll.gif</code></div></article>
+      <article><img src="move.gif" alt="移动 Doro"><div><h2>移动</h2><code>move.gif</code></div></article>
+      <article><img src="dock.gif" alt="停靠 Doro"><div><h2>停靠</h2><code>dock.gif</code></div></article>
+      <article><img src="resize.gif" alt="缩放 Doro"><div><h2>缩放</h2><code>resize.gif</code></div></article>
+      <article><img src="toolbar.gif" alt="工具栏 Doro"><div><h2>工具栏</h2><code>toolbar.gif</code></div></article>
+      <article><img src="tenor-press.gif" alt="冒烟 Doro"><div><h2>冒烟</h2><code>tenor-press.gif</code></div></article>
+      <article><img src="tenor-run.gif" alt="奔跑 Doro"><div><h2>奔跑</h2><code>tenor-run.gif</code></div></article>
+      <article><img src="tenor-dance.gif" alt="跳舞 Doro"><div><h2>跳舞</h2><code>tenor-dance.gif</code></div></article>
+      <article><img src="tenor-dorothy.gif" alt="偷喝 Doro"><div><h2>偷喝</h2><code>tenor-dorothy.gif</code></div></article>
+      <article><img src="tenor-thumb-up.gif" alt="点赞 Doro"><div><h2>点赞</h2><code>tenor-thumb-up.gif</code></div></article>
+    </section>
+    <footer>来源：<a href="https://github.com/MelanTech/Dororo">MelanTech/Dororo</a>、<a href="https://tenor.com/search/nikke-doro-gifs">Tenor 搜索结果</a> · 仅作非商业用途</footer>
+  </main>
+</body>
+</html>

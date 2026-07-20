@@ -118,13 +118,26 @@
             var latest = manifest.posts && manifest.posts[0];
             if (!latest) throw new Error("no posts");
 
+            var headerDate = document.getElementById("header-date");
+            if (headerDate) {
+                headerDate.dateTime = latest.date;
+                headerDate.textContent = latest.date;
+            }
+
             var postResponse = await fetch("posts/" + latest.file);
             if (!postResponse.ok) throw new Error("latest post unavailable");
             var html = await postResponse.text();
             var doc = new DOMParser().parseFromString(html, "text/html");
             var postBody = doc.querySelector(".post-body");
+            var latestDoro = doc.querySelector(".brand-doro[data-doro-image]");
+            var headerDoro = document.getElementById("header-doro");
 
             if (!postBody) throw new Error("post body missing");
+            if (latestDoro && headerDoro) {
+                var doroImage = latestDoro.dataset.doroImage;
+                headerDoro.src = "assets/" + doroImage;
+                headerDoro.dataset.doroImage = doroImage;
+            }
             latestContainer.innerHTML = postBody.innerHTML;
             hardenExternalLinks(latestContainer);
 

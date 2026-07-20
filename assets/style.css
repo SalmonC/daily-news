@@ -120,7 +120,7 @@ img { max-width: 100%; }
 
 .header-inner {
   width: min(1180px, calc(100% - 40px));
-  min-height: 78px;
+  min-height: 62px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -132,35 +132,47 @@ img { max-width: 100%; }
   min-width: 0;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
-.brand-sprites {
-  width: 150px;
-  height: 25px;
-  object-fit: cover;
-  image-rendering: pixelated;
+.brand-sprites,
+.brand-doro {
+  object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(120, 62, 92, .14));
 }
+.brand-sprites { width: 90px; height: 15px; image-rendering: pixelated; }
+.brand-doro {
+  width: 56px;
+  height: 42px;
+  border-radius: 9px;
+  background: #fceff3;
+}
 
-.brand-copy { display: grid; line-height: 1.1; }
+.brand-copy {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  line-height: 1;
+}
 .brand-copy strong {
   font-family: "Songti SC", "STSong", Georgia, serif;
-  font-size: 1.18rem;
+  font-size: 1.08rem;
   letter-spacing: .04em;
 }
-.brand-copy small {
-  margin-top: 5px;
+.header-date {
   color: var(--muted);
-  font-size: .62rem;
+  font-size: .78rem;
   font-weight: 700;
-  letter-spacing: .16em;
+  letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 0;
   color: var(--ink-soft);
   font-size: .84rem;
   font-weight: 650;
@@ -171,23 +183,6 @@ img { max-width: 100%; }
   border-bottom: 1px solid transparent;
 }
 .header-actions a:hover { color: var(--pink-deep); border-color: currentColor; }
-
-.doro-signal {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 11px;
-  border: 1px solid var(--line);
-  border-radius: 99px;
-  background: rgba(255, 255, 255, .72);
-}
-.doro-signal i {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #75a77d;
-  box-shadow: 0 0 0 4px rgba(117, 167, 125, .13);
-}
 
 /* Compatibility with older generated pages */
 .site-header > .doro-mascot {
@@ -846,12 +841,13 @@ img { max-width: 100%; }
 /* Phone */
 @media (max-width: 640px) {
   body { font-size: 15px; }
-  .header-inner { width: calc(100% - 28px); min-height: 68px; }
-  .brand { gap: 10px; }
-  .brand-sprites { width: 108px; height: 18px; }
-  .brand-copy strong { font-size: 1rem; }
-  .brand-copy small { display: none; }
-  .doro-signal { display: none; }
+  .header-inner { width: calc(100% - 28px); min-height: 58px; gap: 12px; }
+  .brand { gap: 8px; }
+  .brand-sprites { width: 72px; height: 12px; }
+  .brand-doro { width: 48px; height: 36px; }
+  .brand-copy { gap: 8px; }
+  .brand-copy strong { font-size: .94rem; }
+  .header-date { font-size: .7rem; }
   .header-actions { font-size: .75rem; }
 
   .post-layout { width: calc(100% - 24px); padding: 20px 0 60px; }
@@ -928,6 +924,5 @@ img { max-width: 100%; }
   .archive-details,
   .home-archive { background: rgba(40,32,39,.84); }
   .home-intro { background: linear-gradient(125deg, var(--paper-strong), var(--paper-pink)); }
-  .doro-signal,
   .back-to-top { background: rgba(40,32,39,.9); }
 }

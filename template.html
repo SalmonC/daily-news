@@ -7,7 +7,7 @@
     <meta name="description" content="Doro日报，工作日更新的科技、商业与游戏资讯。">
     <title>Doro日报 | {{date}}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23ED8EB3'/><circle cx='35' cy='45' r='7' fill='%235A4160'/><circle cx='65' cy='45' r='7' fill='%235A4160'/><path d='M42 64 Q50 70 58 64' fill='none' stroke='%235A4160' stroke-width='5' stroke-linecap='round'/></svg>" sizes="any" type="image/svg+xml">
-    <link rel="stylesheet" href="../assets/style.css?v=20260717-doro">
+    <link rel="stylesheet" href="../assets/style.css?v=20260720-gallery">
 </head>
 <body data-page="post">
     <a class="skip-link" href="#main-content">跳到正文</a>
@@ -16,15 +16,14 @@
     <header class="site-header">
         <div class="header-inner">
             <a class="brand" href="../index.html" aria-label="Doro日报首页">
-                <img class="brand-sprites" src="../assets/doro-sprites.png" alt="" aria-hidden="true">
+                <img class="brand-doro" src="../assets/{{header_doro}}" data-doro-image="{{header_doro}}" alt="" aria-hidden="true">
                 <span class="brand-copy">
                     <strong>Doro日报</strong>
-                    <small>DORO DAILY</small>
+                    <time class="header-date" datetime="{{date}}">{{date}}</time>
                 </span>
             </a>
             <nav class="header-actions" aria-label="页头导航">
-                <span class="doro-signal"><i></i>今日份已到</span>
-                <a href="#archive">往期存档</a>
+                <a href="#archive">往期</a>
             </nav>
         </div>
     </header>
@@ -96,6 +95,6 @@
     </div>
 
     <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">↑</button>
-    <script src="../assets/main.js?v=20260717-doro"></script>
+    <script src="../assets/main.js?v=20260720-gallery"></script>
 </body>
 </html>
