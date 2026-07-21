@@ -1,6 +1,7 @@
 # Doro visual assets
 
 - `doro-mood.png` — supplied by the site owner as the visual reference for this redesign.
+- `doro-avatar.png` — square favicon crop derived from `doro-mood.png`; used as the fixed browser-tab and home-screen icon.
 - `doro-sprites.png` — adapted as-is from [`MelanTech/Dororo`](https://github.com/MelanTech/Dororo), an open-source Doro desktop-pet project. The upstream project is licensed under GPL-3.0 and asks that its assets not be used commercially. This site uses the sprite only as a non-commercial decorative element.
 - `doro-gallery/*.gif` — six header-ready animated crops made from the `dock`, `idle`, `move`, `resize`, `stroll`, and `toolbar` GIFs in [`MelanTech/Dororo`](https://github.com/MelanTech/Dororo). Unmodified downloads are kept in `doro-gallery/originals/`; selection metadata is in `doro-gallery/gallery.json`.
 - `doro-gallery/tenor-press.gif` — discovered through browser image search; [Tenor page](https://tenor.com/view/doro-nikke-meme-press-gif-5443931151072188231).
