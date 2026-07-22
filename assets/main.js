@@ -129,15 +129,10 @@
             var html = await postResponse.text();
             var doc = new DOMParser().parseFromString(html, "text/html");
             var postBody = doc.querySelector(".post-body");
-            var latestDoro = doc.querySelector(".brand-doro[data-doro-image]");
-            var headerDoro = document.getElementById("header-doro");
 
             if (!postBody) throw new Error("post body missing");
-            if (latestDoro && headerDoro) {
-                var doroImage = latestDoro.dataset.doroImage;
-                headerDoro.src = "assets/" + doroImage;
-                headerDoro.dataset.doroImage = doroImage;
-            }
+            var hiddenPostHero = postBody.querySelector(".hero-date");
+            if (hiddenPostHero) hiddenPostHero.remove();
             latestContainer.innerHTML = postBody.innerHTML;
             hardenExternalLinks(latestContainer);
 

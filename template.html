@@ -8,7 +8,7 @@
     <title>Doro日报 | {{date}}</title>
     <link rel="icon" href="../assets/doro-avatar.png" sizes="256x256" type="image/png">
     <link rel="apple-touch-icon" href="../assets/doro-avatar.png">
-    <link rel="stylesheet" href="../assets/style.css?v=20260720-gallery">
+    <link rel="stylesheet" href="../assets/style.css?v=20260721-hero-random-v2">
 </head>
 <body data-page="post">
     <a class="skip-link" href="#main-content">跳到正文</a>
@@ -17,7 +17,7 @@
     <header class="site-header">
         <div class="header-inner">
             <a class="brand" href="../index.html" aria-label="Doro日报首页">
-                <img class="brand-doro" src="../assets/{{header_doro}}" data-doro-image="{{header_doro}}" alt="" aria-hidden="true">
+                <img class="brand-doro" src="../assets/doro-avatar.png" alt="" aria-hidden="true">
                 <span class="brand-copy">
                     <strong>Doro日报</strong>
                     <time class="header-date" datetime="{{date}}">{{date}}</time>
@@ -51,6 +51,7 @@
                     <p class="sub"><b>{{source_count}}</b> 个栏目</p>
                     <p class="hero-whisper">“报纸放在这里了。Doro先盯一会儿。”</p>
                 </div>
+                <img class="hero-doro" src="../assets/{{hero_doro}}" data-hero-image="{{hero_doro}}" alt="" aria-hidden="true">
             </section>
 
             {{sections}}
@@ -96,6 +97,6 @@
     </div>
 
     <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">↑</button>
-    <script src="../assets/main.js?v=20260720-gallery"></script>
+    <script src="../assets/main.js?v=20260721-hero-random-v2"></script>
 </body>
 </html>

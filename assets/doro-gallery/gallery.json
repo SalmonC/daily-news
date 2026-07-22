@@ -5,16 +5,16 @@
   ],
   "commercial_use": false,
   "items": [
-    { "file": "idle.gif", "label": "待机", "source": "dororo", "enabled": true },
-    { "file": "stroll.gif", "label": "散步", "source": "dororo", "enabled": true },
-    { "file": "move.gif", "label": "移动", "source": "dororo", "enabled": true },
-    { "file": "dock.gif", "label": "停靠", "source": "dororo", "enabled": true },
-    { "file": "resize.gif", "label": "缩放", "source": "dororo", "enabled": true },
-    { "file": "toolbar.gif", "label": "工具栏", "source": "dororo", "enabled": true },
-    { "file": "tenor-press.gif", "label": "冒烟", "source": "tenor", "page": "https://tenor.com/view/doro-nikke-meme-press-gif-5443931151072188231", "enabled": true },
-    { "file": "tenor-run.gif", "label": "奔跑", "source": "tenor", "page": "https://tenor.com/view/goddess-of-victory-nikke-doro-meme-run-gif-13805379475337467592", "enabled": true },
-    { "file": "tenor-dance.gif", "label": "跳舞", "source": "tenor", "page": "https://tenor.com/view/nikke-doro-doro-nikke-doro-dance-nikke-doro-dance-nikke-goddess-of-victory-gif-8703647541755233763", "enabled": true },
-    { "file": "tenor-dorothy.gif", "label": "偷喝", "source": "tenor", "page": "https://tenor.com/es/view/doro-dorothy-nikke-gif-5599408445189094436", "enabled": true },
-    { "file": "tenor-thumb-up.gif", "label": "点赞", "source": "tenor", "page": "https://tenor.com/view/doro-nikke-meme-press-gif-5443931151072188231", "enabled": true }
+    { "file": "idle.gif", "label": "待机", "source": "dororo", "enabled": true, "hero_enabled": true },
+    { "file": "stroll.gif", "label": "散步", "source": "dororo", "enabled": true, "hero_enabled": true },
+    { "file": "move.gif", "label": "移动", "source": "dororo", "enabled": true, "hero_enabled": true },
+    { "file": "dock.gif", "label": "停靠", "source": "dororo", "enabled": true, "hero_enabled": true },
+    { "file": "resize.gif", "label": "缩放", "source": "dororo", "enabled": true, "hero_enabled": true },
+    { "file": "toolbar.gif", "label": "工具栏", "source": "dororo", "enabled": true, "hero_enabled": true },
+    { "file": "tenor-press.gif", "label": "冒烟", "source": "tenor", "page": "https://tenor.com/view/doro-nikke-meme-press-gif-5443931151072188231", "enabled": true, "hero_enabled": true },
+    { "file": "tenor-run.gif", "label": "奔跑", "source": "tenor", "page": "https://tenor.com/view/goddess-of-victory-nikke-doro-meme-run-gif-13805379475337467592", "enabled": true, "hero_enabled": true },
+    { "file": "tenor-dance.gif", "label": "跳舞", "source": "tenor", "page": "https://tenor.com/view/nikke-doro-doro-nikke-doro-dance-nikke-doro-dance-nikke-goddess-of-victory-gif-8703647541755233763", "enabled": true, "hero_enabled": true },
+    { "file": "tenor-dorothy.gif", "label": "偷喝", "source": "tenor", "page": "https://tenor.com/es/view/doro-dorothy-nikke-gif-5599408445189094436", "enabled": true, "hero_enabled": true },
+    { "file": "tenor-thumb-up.gif", "label": "点赞", "source": "tenor", "page": "https://tenor.com/view/doro-nikke-meme-press-gif-5443931151072188231", "enabled": true, "hero_enabled": true }
   ]
 }
