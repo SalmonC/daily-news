@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=posts/2026-07-29.html">
+    <title>Doro日报 · 最新</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FF6B8A'/><path d='M50 75 L28 52 A18 18 0 0 1 50 35 A18 18 0 0 1 72 52 Z' fill='white'/></svg>">
+    <script>
+        // JS fallback: read manifest, always redirect to latest
+        fetch('posts/manifest.json')
+            .then(r => r.json())
+            .then(m => {
+                if (m.posts && m.posts[0]) {
+                    window.location.replace('posts/' + m.posts[0].file);
+                }
+            });
+    </script>
+</head>
+<body style="text-align:center;padding-top:80px;font-family:sans-serif;color:#FF6B8A">
+    <p>Doro 正在领你去看最新日报… ₍ᐢ.ˬ.ᐢ₎</p>
+</body>
+</html>
