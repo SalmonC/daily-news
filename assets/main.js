@@ -106,50 +106,20 @@
         });
     }
 
+    // 首页：读取 manifest 最新条目，直接跳转到完整日报页面
     async function loadHomeContent() {
-        var latestContainer = document.getElementById("latest-post");
-        var archiveList = document.getElementById("archive-list");
-        if (!latestContainer || !archiveList) return;
-
         try {
             var response = await fetch("posts/manifest.json");
             if (!response.ok) throw new Error("manifest unavailable");
             var manifest = await response.json();
             var latest = manifest.posts && manifest.posts[0];
             if (!latest) throw new Error("no posts");
-
-            var headerDate = document.getElementById("header-date");
-            if (headerDate) {
-                headerDate.dateTime = latest.date;
-                headerDate.textContent = latest.date;
-            }
-
-            var postResponse = await fetch("posts/" + latest.file);
-            if (!postResponse.ok) throw new Error("latest post unavailable");
-            var html = await postResponse.text();
-            var doc = new DOMParser().parseFromString(html, "text/html");
-            var postBody = doc.querySelector(".post-body");
-
-            if (!postBody) throw new Error("post body missing");
-            var hiddenPostHero = postBody.querySelector(".hero-date");
-            if (hiddenPostHero) hiddenPostHero.remove();
-            latestContainer.innerHTML = postBody.innerHTML;
-            hardenExternalLinks(latestContainer);
-
-            manifest.posts.slice(1, 25).forEach(function (post) {
-                var item = document.createElement("li");
-                var link = document.createElement("a");
-                var weekday = document.createElement("span");
-                link.href = "posts/" + post.file;
-                link.append(document.createTextNode(post.date));
-                weekday.className = "weekday";
-                weekday.textContent = post.weekday;
-                link.appendChild(weekday);
-                item.appendChild(link);
-                archiveList.appendChild(item);
-            });
+            window.location.replace("posts/" + latest.file);
         } catch (error) {
-            latestContainer.innerHTML = '<p class="loading">Doro 翻了翻口袋，暂时没找到最新日报。</p>';
+            var latestContainer = document.getElementById("latest-post");
+            if (latestContainer) {
+                latestContainer.innerHTML = '<p class="loading">Doro 在爬，稍等下… ₍ᐢ.ˬ.ᐢ₎</p>';
+            }
             console.warn("Doro daily load failed:", error);
         }
     }
