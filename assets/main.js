@@ -130,6 +130,5 @@
         initPagination();
         initActiveToc();
         hardenExternalLinks(document);
-        await loadHomeContent();
     });
 })();
